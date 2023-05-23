@@ -5,6 +5,11 @@ import { Navbar, Nav, Container, Modal, Tab } from 'react-bootstrap';
 import SignUpForm from './SignupForm';
 import LoginForm from './LoginForm';
 
+//icons
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {faUser} from "@fortawesome/free-regular-svg-icons";
+import {faIcons, faCirclePlus } from "@fortawesome/free-solid-svg-icons";
+
 import Auth from '../utils/auth';
 
 const AppNavbar = () => {
@@ -22,7 +27,12 @@ const AppNavbar = () => {
     <Navbar.Collapse id='navbar' className='d-flex flex-row-reverse'>
       <Nav className='ml-auto d-flex'>
         <Nav.Link as={Link} to='/'>
-          Search For Events
+          {/* link to profile page */}
+        <FontAwesomeIcon icon={faUser} style={{color: "#f50000",}} />
+          {/* link to post page */}
+        <FontAwesomeIcon icon={faCirclePlus} style={{color: "#00ffbf",}} />
+          {/* link to event page */}
+        <FontAwesomeIcon icon={faIcons} />
         </Nav.Link>
         {/* if user is logged in show saved books and logout */}
         {Auth.loggedIn() ? (
