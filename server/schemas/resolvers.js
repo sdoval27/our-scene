@@ -39,19 +39,22 @@ const resolvers = {
 
         createPost: async (parent, { content, eventId }, context) => {
             if (context.user) {
-              const post = await Post.create({
-                content,
-                user: context.user._id,
-                event: eventId,
-              });
-              return post;
+                const post = await Post.create({
+                    content,
+                    user: context.user._id,
+                    event: eventId,
+                });
+                return post;
             }
             throw new AuthenticationError('Not logged in');
-          },
-        
+        },
+
         deletePost: async (parent, { postId }, context) => {
             if (context.user) {
-                const post = await Post.findOneAndDelete({ _id: postId, user: context.user._id });
+                const post = await Post.findOneAndDelete({
+                    _id: postId,
+                    user: context.user._id
+                });
                 return post;
             }
             throw new AuthenticationError('Not logged in');

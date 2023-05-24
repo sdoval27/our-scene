@@ -13,11 +13,15 @@ const eventSchema = new mongoose.Schema({
     type: Date,
     required: true,
   },
-  location: {
+  venue: {
     type: String,
     required: true,
   },
-  // Other fields specific to your event model
+  artistList: {
+    type: String,
+    required: true,
+  }
+
 });
 
 const Event = mongoose.model('Event', eventSchema);

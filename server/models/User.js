@@ -26,6 +26,9 @@ const userSchema = new Schema(
     bio: {
         type: String,
     },
+    preferences: {
+      type: String,
+    }
   },
   
   {
