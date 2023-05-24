@@ -12,6 +12,10 @@ const postSchema = new Schema(
             ref: 'User',
             required: true,
         },
+        event: {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: 'Event',
+          },
         createdAt: {
             type: Date,
             default: Date.now,

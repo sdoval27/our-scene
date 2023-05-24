@@ -26,9 +26,8 @@ const userSchema = new Schema(
     bio: {
         type: String,
     },
-    // set savedBooks to be an array of data that adheres to the bookSchema
   },
-  // set this to use virtual below
+  
   {
     toJSON: {
       virtuals: true,
