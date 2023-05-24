@@ -37,6 +37,11 @@ const client = new ApolloClient({
   cache: new InMemoryCache(),
 });
 
+const styles = {
+  mainStyle: {
+    background: "#489D7C",
+  }
+};
 
 
 function App() {

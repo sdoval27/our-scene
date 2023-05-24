@@ -15,7 +15,7 @@ const AppHeader = () => {
     <>
       <Navbar bg='dark' variant='dark' expand='lg'>
         <Container fluid>
-          <Navbar.Brand as={Link} to='/'>
+          <Navbar.Brand as={Link} to='/' styling='headerText'>
             EDM TRAIN
           </Navbar.Brand>
         </Container>

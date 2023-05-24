@@ -4,6 +4,7 @@ import { Navbar, Nav, Container, Modal, Tab } from 'react-bootstrap';
 
 import SignUpForm from './SignupForm';
 import LoginForm from './LoginForm';
+import Post from '../pages/Post';
 
 //icons
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -12,7 +13,7 @@ import { faIcons, faCirclePlus } from "@fortawesome/free-solid-svg-icons";
 
 import Auth from '../utils/auth';
 
-const AppNavbar = () => {
+const AppNavbar = ({ currentPage, handlePageChange }) => {
   // set modal display state
   const [showModal, setShowModal] = useState(false);
 
@@ -24,19 +25,38 @@ const AppNavbar = () => {
           <Navbar.Toggle aria-controls='navbar' />
           <Navbar.Collapse id='navbar' className='d-flex flex-row-reverse'>
             <Nav className='ml-auto d-flex'>
-              <Nav.Link as={Link} to='/'>
+              <a
+                href="/"
+                onClick={() => handlePageChange('Concerts')}
+                className={currentPage === 'Concerts' ? 'nav-link active' : 'nav-link'}>
                 {/* link to event page */}
                 <FontAwesomeIcon icon={faIcons} />
-              </Nav.Link>
+              </a>
+              <a
+                href='/post'
+                onClick={() => handlePageChange('Post')}
+                className={currentPage === 'Post' ? 'nav-link active' : 'nav-link'}>
+                <FontAwesomeIcon icon={faCirclePlus} style={{ color: "#00ffbf", }} />
+              </a>
+              <a
+              href='/profile'
+              onClick={() => handlePageChange ('Profile')}
+              className={currentPage === 'Profile' ? 'nav-link active' : 'nav-link'}>
+                <FontAwesomeIcon icon={faUser} style={{ color: "#f50000", }} />
+              </a>
+
               {/* if user is logged in show saved books and logout */}
               {Auth.loggedIn() ? (
                 <>
-                  {/* link to post page */}
-                  <Nav.Link as={Link} to='/post'>
+                  {/* move link to post page here*/}
+                  <a
+                    href='/post'
+                    onClick={() => handlePageChange('Concerts')}
+                    className={currentPage === 'Concerts' ? 'nav-link active' : 'nav-link'}>
                     <FontAwesomeIcon icon={faCirclePlus} style={{ color: "#00ffbf", }} />
-                  </Nav.Link>
+                  </a>
 
-                  {/* link to profile page */}
+                  {/* move link to profile page here*/}
                   <Nav.Link as={Link} to='/profile'>
                     <FontAwesomeIcon icon={faUser} style={{ color: "#f50000", }} />
                   </Nav.Link>
