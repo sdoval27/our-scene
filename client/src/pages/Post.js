@@ -4,25 +4,26 @@ import { useMutation } from '@apollo/client';
 
 
 //post concert
-import { ADD_CONCERT } from '../../utils/mutations';
+import { CREATE_POST } from '../../utils/mutations';
 //prev Concerts and user info
-import { QUERY_CONCERTS, QUERY_ME } from '../../utils/queries';
+//import { QUERY_CONCERTS, QUERY_ME } from '../../utils/queries';
 
 
 import Auth from '../../utils/auth';
 
 
 const PostForm = () => {
-  const [concertText, setConcertText] = useState('');
+  const [content, setContent] = useState('');
 
 
   const [characterCount, setCharacterCount] = useState(0);
 
 
-  const [addConcert, { error }] = useMutation(ADD_CONCERT, {
-    update(cache, { data: { addConcert } }) {
+  const [createPost, { error }] = useMutation(CREATE_POST, {
+    update(cache, { data: { createPost } }) {
+        //update event list, meaning we need to set up query for events list
       try {
-        const { concerts } = cache.readQuery({ query: QUERY_CONCERTS });
+        const { Concerts } = cache.readQuery({ query: QUERY_CONCERTS });
 
 
         cache.writeQuery({
@@ -34,12 +35,11 @@ const PostForm = () => {
       }
 
 
-      //remove?? ASK SINCLAIR
       // update me object's cache
       const { me } = cache.readQuery({ query: QUERY_ME });
       cache.writeQuery({
         query: QUERY_ME,
-        data: { me: { ...me, concerts: [...me.concerts, addConcert] } },
+        data: { me: { ...me, events: [...me.events, createPost] } },
       });
     },
   });
@@ -50,15 +50,15 @@ const PostForm = () => {
 
 
     try {
-      const { data } = await addConcert({
+      const { data } = await createPost({
         variables: {
-          concertText,
+          content,
           user: Auth.getProfile().data.username,
         },
       });
 
 
-      setConcertText('');
+      setContent('');
     } catch (err) {
       console.error(err);
     }
@@ -70,7 +70,7 @@ const PostForm = () => {
 
 
     if (name === 'concertText' && value.length <= 280) {
-      setConcertText(value);
+      setContent(value);
       setCharacterCount(value.length);
     }
   };
@@ -96,9 +96,9 @@ const PostForm = () => {
           >
             <div className="col-12 col-lg-9">
               <textarea
-                name="concertText"
+                name="content"
                 placeholder="Check out this latest event..."
-                value={concertText}
+                value={content}
                 className="form-input w-100"
                 style={{ lineHeight: '1.5', resize: 'vertical' }}
                 onChange={handleChange}
