@@ -1,14 +1,16 @@
-export const ADD_CONCERT = gql`
-  mutation addConcert($concertText: String!) {
-    addConcert(concertText: $concertText) {
+export const CREATE_POST = gql`
+  mutation createPost($content: String!) {
+    createPost(content: $content) {
       _id
-      thoughtText
-      thoughtAuthor
+      content
       createdAt
-      comments {
+      event
+      userLocation
+      user{
         _id
-        commentText
+        username
       }
     }
   }
 `;
+
