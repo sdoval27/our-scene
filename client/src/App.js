@@ -3,9 +3,13 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 import './App.css';
 
-import Test from './pages/test'
+import Header from './components/Header';
 
-import Navbar from './components/Navbar';
+
+import Concerts from './pages/Concerts';
+import Post from './pages/Post';
+import Profile from './pages/Profile';
+import Navbar from "./components/Navbar";
 
 import {
   ApolloClient,
@@ -17,7 +21,7 @@ import {
 import { setContext } from '@apollo/client/link/context';
 
 const httpLink = createHttpLink({
-  uri:'/graphql',
+  uri: '/graphql',
 });
 
 const authLink = setContext((_, { headers }) => {
@@ -36,20 +40,28 @@ const client = new ApolloClient({
 });
 
 
-
 function App() {
   return (
     <ApolloProvider client={client}>
       <Router>
         <>
-        <Navbar/>
-        <Routes>
-            <Route 
-              path='/' 
-              element={<Test />} 
+        <Header />
+          <Routes>
+            <Route
+              path='/'
+              element={<Concerts />}
             />
-        
-        </Routes>
+            <Route
+              path='/post'
+              element={<Post/>}/>
+
+            <Route
+              path='/profile'
+              element={<Profile/>}
+              />
+
+          </Routes>
+          <Navbar/>
         </>
       </Router>
     </ApolloProvider>
