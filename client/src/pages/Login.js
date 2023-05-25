@@ -1,32 +1,34 @@
 import React from 'react';
+import { Container, Row, Col } from 'react-bootstrap';
 import LForm from '../components/LForm'
 
 
 
 const styles = {
-  Center: {
-    textAlign: 'center',
-    justifyContent: 'center',
-    alignItems: 'center',
+  Default: {
+    display: 'inline'
   },
-  Space: {
-    padding: '10px'
-  },
-  Disk: {
+  Frame: {
     borderStyle: 'solid',
-    borderRadius: '5px'
+    borderWidth: '1px',
+    borderRadius: '5px',
+    padding: '10px',
+    margin: '10px'
   }
+
 }
 
 export default function Login() {
   return (
-    <div style={styles.Center}>
-      <div className="row" style={styles.Space}></div>
-
-      <div className="row">        
-      </div>
-      <LForm />
-    </div>
+    <Container style={styles.Default}>    
+      <Row>
+        <Col></Col>
+        <Col xs={12} md={8} style={styles.Frame}>          
+          <LForm />
+        </Col>
+        <Col></Col>
+      </Row>
+    </Container>
   )
 };
 

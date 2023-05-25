@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   Container,
   Card,
@@ -7,6 +7,10 @@ import {
   Row,
   Col
 } from 'react-bootstrap';
+
+import { useMutation } from '@apollo/client';
+import { LOGIN_USER } from '../utils/mutations';
+import Auth from '../utils/auth';
 
 const styles = {
   Text: {
@@ -38,6 +42,11 @@ const LForm = () => {
 
   const [showAlert, setShowAlert] = useState(false);
 
+  
+
+
+  
+
   //login
   const handleInputChange = (event) => {
     const { name, value } = event.target;
@@ -49,7 +58,7 @@ const LForm = () => {
     <>
       <Container>
         <Card style={styles.Card}>
-          <h1 style={styles.Text}>Konnect</h1>
+          <h1 style={styles.Text}>Untitled App</h1>
           <Form>
             <Row>
               <Col>
@@ -86,14 +95,14 @@ const LForm = () => {
           <Row>
 
             <Col>
-              <Button style={styles.Button}>Login</Button>
+            <a href = '/concerts'><Button style={styles.Button}>Login</Button></a>
             </Col>
           </Row>
           <Row>
             Don't Have an Account?
           </Row>
           <Row>
-            <Button style={styles.Button}>Sign Up Here!</Button>
+            <a href = '/signup'><Button style={styles.Button}>Sign Up Here!</Button></a>
           </Row>
 
         </Card>

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   Container,
   Card,
@@ -7,6 +7,10 @@ import {
   Row,
   Col
 } from 'react-bootstrap';
+
+import { useMutation } from '@apollo/client';
+import { ADD_USER } from '../utils/mutations';
+import Auth from '../utils/auth';
 
 const styles = {
   Text: {
@@ -28,14 +32,24 @@ const styles = {
   }
 }
 
-
 const SForm = () => {
 
-  const [userFormData, setUserFormData] = useState({ username: '', password: '' });
+
+  const [userFormData, setUserFormData] = useState({ username: '', email: '', password: '' });
 
   const [validated] = useState(false);
 
   const [showAlert, setShowAlert] = useState(false);
+
+  const [addUser, {error}] = useMutation(ADD_USER);
+
+  useEffect(() => {
+    if (error) {
+      setShowAlert(true);
+    }else{
+      setShowAlert(false);
+    }
+  }, [error]);
 
   //login
   const handleInputChange = (event) => {
@@ -43,12 +57,40 @@ const SForm = () => {
     setUserFormData({ ...userFormData, [name]: value });
   };
 
+  const handleFormSubmit = async (event) => {
+    event.preventDefault();
+  
+    const form = event.currentTarget;
+    if (form.checkValidity() === false) {
+      event.preventDefault();
+      event.stopPropagation();
+    }
+
+    try {
+      console.log({...userFormData})
+      const {data} = await addUser ({
+        variables: {...userFormData},
+      });
+
+      console.log (data);
+      Auth.login(data.createUser.token);
+    } catch (err) {
+      console.error(err);
+    }
+  
+      setUserFormData({
+        username: '',
+        email: '',
+        password: '',
+      });
+    };
+
 
   return (
     <>
       <Container>
         <Card style={styles.Card}>
-          <h4 style={styles.Text}>Signup to connect with others</h4>
+          <h4 style={styles.Text}>Sign up to connect with others</h4>
           <Form>
             <Row>
               <Col>
@@ -97,7 +139,7 @@ const SForm = () => {
             </Row>
           </Form>
           <Row>
-            <Button style={styles.Button}>Sign Up</Button>
+            <a href='/concerts'><Button style={styles.Button}>Sign Up</Button></a>
           </Row>
 
         </Card>

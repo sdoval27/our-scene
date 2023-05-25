@@ -18,15 +18,14 @@ const styles = {
     },
 }
 
-
 function Concerts() {
     return(
-        <div className ='.align-content-center' style={styles.Center}>                  
+        <div style={styles.Center}>                  
             <div className="row">
                 <h1 style={styles.Text}>Concerts</h1>
             </div>
             <div className="row">
-                <img src={diskJockey} alt="dj" style={styles.Disk} />
+                <img src={diskJockey} alt="dj" />
             </div>
             <div>
                 <div className="row"></div>

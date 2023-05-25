@@ -5,7 +5,8 @@ import './App.css';
 
 import Header from './components/Header';
 
-
+import Login from './pages/Login'
+import Signup from './pages/Signup'
 import Concerts from './pages/Concerts';
 import Post from './pages/Post';
 import Profile from './pages/Profile';
@@ -41,37 +42,42 @@ const client = new ApolloClient({
 
 const styles = {
   Background: {
-  background: 'linear-gradient(90deg, #FC466B 0%, #3F5EFB 100%)'
-}
+    background: 'linear-gradient(90deg, #FC466B 0%, #3F5EFB 100%)'
+  }
 }
 
 function App() {
-  return (
-    <div style={styles.Background}>
-    <ApolloProvider client={client}>
-      <Router>
-        <>
-        <Header />
-          <Routes>
-            <Route
-              path='/'
-              element={<Concerts />}
-            />
-            <Route
-              path='/post'
-              element={<Post/>}/>
+  return (    
+      <ApolloProvider client={client}>
+        <Router>
+          <>
+            <Header />
+            <Routes>
+              <Route
+                path='/'
+                element={<Login />}
+              />
+              <Route
+                path='/signup'
+                element={<Signup />} />
+              <Route
+                path='/concert'
+                element={<Concerts />} />
+              <Route
+                path='/post'
+                element={<Post />} />
 
-            <Route
-              path='/profile'
-              element={<Profile/>}
+              <Route
+                path='/profile'
+                element={<Profile />}
               />
 
-          </Routes>
-          <Navbar/>
-        </>
-      </Router>
-    </ApolloProvider>
-    </div>
+            </Routes>
+            <Navbar />
+          </>
+        </Router>
+      </ApolloProvider>
+    
 
   );
 }
