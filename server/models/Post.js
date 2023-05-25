@@ -20,6 +20,10 @@ const postSchema = new Schema(
             type: Date,
             default: Date.now,
         },
+        userLocation: {
+            type: String,
+            required: true,
+        }
     })
 
 const Post = mongoose.model('Post', postSchema);

@@ -16,6 +16,7 @@ const typeDefs = gql`
     createdAt: String!
     user: User!
     event: Events
+    userLocation: String!
   }
 
   type Events {
