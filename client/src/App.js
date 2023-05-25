@@ -5,9 +5,11 @@ import './App.css';
 
 import Header from './components/Header';
 
-import Test from './pages/test';
 
-import Navbar from './components/Navbar';
+import Concerts from './pages/Concerts';
+import Post from './pages/Post';
+import Profile from './pages/Profile';
+import Navbar from "./components/Navbar";
 
 import {
   ApolloClient,
@@ -37,12 +39,6 @@ const client = new ApolloClient({
   cache: new InMemoryCache(),
 });
 
-const styles = {
-  mainStyle: {
-    background: "#489D7C",
-  }
-};
-
 
 function App() {
   return (
@@ -53,11 +49,19 @@ function App() {
           <Routes>
             <Route
               path='/'
-              element={<Test />}
+              element={<Concerts />}
             />
+            <Route
+              path='/post'
+              element={<Post/>}/>
+
+            <Route
+              path='/profile'
+              element={<Profile/>}
+              />
 
           </Routes>
-          <Navbar />
+          <Navbar/>
         </>
       </Router>
     </ApolloProvider>

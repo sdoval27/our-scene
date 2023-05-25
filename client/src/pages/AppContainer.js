@@ -1,26 +1,23 @@
 import React, { useState } from 'react';
 
-import '../components/Navbar';
-import Post from './pages/Post';
-import About from './pages/About';
-import Portfolio from './pages/Portfolio';
-import Contact from './pages/Contact';
-import Header from "./Footer";
+import Concerts from './Concerts';
+import Post from './Post';
+import Profile from './Profile';
+import Navbar from "../components/Navbar";
 
-export default function PortfolioContainer() {
-  const [currentPage, setCurrentPage] = useState('About');
+export default function AppContainer() {
+  const [currentPage, setCurrentPage] = useState('Concerts');
 
   const renderPage = () => {
-    if (currentPage === 'About') {
-      return <About />;
+    if (currentPage === 'Concerts') {
+      return <Concerts />;
     }
-    if (currentPage === 'Resume') {
-      return <Resume />;
+    if (currentPage === 'Post') {
+      return <Post />;
     }
-    if (currentPage === 'Portfolio') {
-      return <Portfolio />;
+    if (currentPage === 'Profile') {
+      return <Profile />;
     }
-    return <Contact />;
   };
 
   const handlePageChange = (page) => setCurrentPage(page);
@@ -28,10 +25,9 @@ export default function PortfolioContainer() {
   return (
     <div>
 
-      <NavTabs currentPage={currentPage} handlePageChange={handlePageChange} />
-      
       {renderPage()}
-      <Footer /> 
+      <Navbar currentPage={currentPage} handlePageChange={handlePageChange} />
+
     </div>
   );
 }
