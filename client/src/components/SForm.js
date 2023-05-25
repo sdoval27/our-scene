@@ -10,15 +10,21 @@ import {
 
 const styles = {
   Text: {
-  fontFamily: 'Orbitron',
-  fontWeight: 'bold',
-  color: 'white',
-  textShadow: '2px 2px #000000'
-},
+    fontFamily: 'Orbitron',
+    fontWeight: 'bold',
+    color: 'white',
+    textShadow: '2px 2px #000000'
+  },
   Button: {
     color: 'white',
     backgroundColor: '#0074FF',
     borderRadius: '6px'
+  },
+  Card: {
+    textAlign: 'center',
+    justifyContent: 'center',
+    alignItems: 'center',
+    background: 'linear-gradient(90deg, #FC466B 0%, #3F5EFB 100%)'
   }
 }
 
@@ -41,7 +47,7 @@ const SForm = () => {
   return (
     <>
       <Container>
-        <Card>
+        <Card style={styles.Card}>
           <h4 style={styles.Text}>Signup to connect with others</h4>
           <Form>
             <Row>
@@ -73,7 +79,7 @@ const SForm = () => {
                   required
                 />
               </Col>
-            </Row>            
+            </Row>
             <Row>
               <Col>
                 <Form.Label htmlFor='password' style={styles.Text}>Password:</Form.Label>

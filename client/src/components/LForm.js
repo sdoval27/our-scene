@@ -14,11 +14,18 @@ const styles = {
   fontWeight: 'bold',
   color: 'white',
   textShadow: '2px 2px #000000'
+  
 },
   Button: {
     color: 'white',
     backgroundColor: '#0074FF',
     borderRadius: '6px'
+  },
+  Card: {
+    textAlign: 'center',
+    justifyContent: 'center',
+    alignItems: 'center',
+    background: 'linear-gradient(90deg, #FC466B 0%, #3F5EFB 100%)'
   }
 }
 
@@ -41,7 +48,7 @@ const LForm = () => {
   return (
     <>
       <Container>
-        <Card>
+        <Card style={styles.Card}>
           <h1 style={styles.Text}>Konnect</h1>
           <Form>
             <Row>
