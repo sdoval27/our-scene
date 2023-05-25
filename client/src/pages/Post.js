@@ -4,12 +4,11 @@ import { useMutation } from '@apollo/client';
 
 
 //post concert
-import { CREATE_POST } from '../../utils/mutations';
-//prev Concerts and user info
-//import { QUERY_CONCERTS, QUERY_ME } from '../../utils/queries';
+import { CREATE_POST } from '../utils/mutations';
+//prev posts and user info
+import { QUERY_POSTS, QUERY_ME } from '../utils/queries';
 
-
-import Auth from '../../utils/auth';
+import Auth from '../utils/auth';
 
 
 const PostForm = () => {
@@ -23,12 +22,12 @@ const PostForm = () => {
     update(cache, { data: { createPost } }) {
         //update event list, meaning we need to set up query for events list
       try {
-        const { Concerts } = cache.readQuery({ query: QUERY_CONCERTS });
+        const { content } = cache.readQuery({ query: QUERY_POSTS });
 
 
         cache.writeQuery({
-          query: QUERY_CONCERTS,
-          data: { concerts: [addConcerts, ...concerts] },
+          query: QUERY_POSTS,
+          data: { content: [createPost, ...content] },
         });
       } catch (e) {
         console.error(e);
@@ -39,7 +38,7 @@ const PostForm = () => {
       const { me } = cache.readQuery({ query: QUERY_ME });
       cache.writeQuery({
         query: QUERY_ME,
-        data: { me: { ...me, events: [...me.events, createPost] } },
+        data: { me: { ...me, content: [...me.content, createPost] } },
       });
     },
   });
@@ -69,7 +68,7 @@ const PostForm = () => {
     const { name, value } = event.target;
 
 
-    if (name === 'concertText' && value.length <= 280) {
+    if (name === 'content' && value.length <= 280) {
       setContent(value);
       setCharacterCount(value.length);
     }
@@ -81,7 +80,7 @@ const PostForm = () => {
       <h3>Where to next?</h3>
 
 
-      {Auth.loggedIn() ? (
+      {/* {Auth.loggedIn() ? ( */}
         <>
           <p
             className={`m-0 ${
@@ -118,12 +117,12 @@ const PostForm = () => {
             )}
           </form>
         </>
-      ) : (
+      {/* ) : (
         <p>
           You need to be logged in to post content. Please{' '}
           <Link to="/login">login</Link> or <Link to="/signup">signup.</Link>
         </p>
-      )}
+      )} */}
     </div>
   );
 };
