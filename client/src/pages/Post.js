@@ -77,7 +77,7 @@ const PostForm = () => {
 
   return (
     <div className='container'>
-      <h3 className='title'>Where to next?</h3>
+      <h3 className='title text'>Where to next?</h3>
 
 
       {/* {Auth.loggedIn() ? ( */}
@@ -90,16 +90,16 @@ const PostForm = () => {
             <div className="col-12 col-lg-9">
               <textarea
                 name="content"
-                placeholder="Put your concert deets here :)"
+                placeholder="Concert Deets Here!"
                 value={content}
-                className="form-input w-100"
+                className="form text form-input w-100"
                 style={{ lineHeight: '1.5', resize: 'vertical' }}
                 onChange={handleChange}
               ></textarea>
             </div>
 
             <p
-            className={`m-0 ${
+            className={`text m-0 ${
               characterCount === 280 || error ? 'text-danger' : ''
             }`}
           >
@@ -108,7 +108,7 @@ const PostForm = () => {
 
 
             <div className="col-12 col-lg-3">
-              <button className="btn btn-primary btn-block py-3" type="submit">
+              <button className="text btn btn-primary btn-block py-3" type="submit">
                 Post!
               </button>
             </div>

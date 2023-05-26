@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Navbar, Nav, Container, Modal, Tab } from 'react-bootstrap';
 
-import SignUpForm from './SignupForm';
-import LoginForm from './LoginForm';
+import SForm from './SForm';
+import LForm from './LForm';
 import Post from '../pages/Post';
 
 //icons
@@ -13,13 +13,21 @@ import { faIcons, faCirclePlus } from "@fortawesome/free-solid-svg-icons";
 
 import Auth from '../utils/auth';
 
+const styles = {
+  Center: {
+  textAlign: 'center',
+  justifyContent: 'center',
+  alignItems: 'center',
+},
+}
+
 const AppNavbar = ({ currentPage, handlePageChange }) => {
   // set modal display state
   const [showModal, setShowModal] = useState(false);
 
   return (
     <>
-      <Navbar bg='dark' variant='dark' expand='lg'>
+      <Navbar bg='dark' variant='dark' expand='lg' style={styles.Center}>
         <Container fluid>
 
           <Navbar.Toggle aria-controls='navbar' />
@@ -81,10 +89,10 @@ const AppNavbar = ({ currentPage, handlePageChange }) => {
           <Modal.Header closeButton>
             <Modal.Title id='signup-modal'>
               <Nav variant='pills'>
-                <Nav.Item>
+                <Nav.Item style={styles.Center}>
                   <Nav.Link eventKey='login'>Login</Nav.Link>
                 </Nav.Item>
-                <Nav.Item>
+                <Nav.Item style={styles.Center}>
                   <Nav.Link eventKey='signup'>Sign Up</Nav.Link>
                 </Nav.Item>
               </Nav>
@@ -93,10 +101,10 @@ const AppNavbar = ({ currentPage, handlePageChange }) => {
           <Modal.Body>
             <Tab.Content>
               <Tab.Pane eventKey='login'>
-                <LoginForm handleModalClose={() => setShowModal(false)} />
+                <LForm handleModalClose={() => setShowModal(false)} />
               </Tab.Pane>
               <Tab.Pane eventKey='signup'>
-                <SignUpForm handleModalClose={() => setShowModal(false)} />
+                <SForm handleModalClose={() => setShowModal(false)} />
               </Tab.Pane>
             </Tab.Content>
           </Modal.Body>

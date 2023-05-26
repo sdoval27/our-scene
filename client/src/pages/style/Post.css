@@ -1,12 +1,18 @@
 .container{
     text-align: center;
+    
+}
+.title{
+    font-weight: 'bold';
+  }
+.text{
+    font-family: 'Orbitron';
+}
+.form{
+    border: none;
+    border-radius: 10px;
 }
 
-.title{
-  font-family: 'Orbitron';
-  font-weight: 'bold';
-  color: 'blue';
-}
 
 /* Smartphones (portrait and landscape) ----------- */
 @media only screen
