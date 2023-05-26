@@ -6,6 +6,8 @@ import './App.css';
 import Header from './components/Header';
 
 
+import Login from './pages/Login';
+import Signup from './pages/Signup'
 import Home from './pages/Home';
 import Post from './pages/Post';
 import Profile from './pages/Profile';
@@ -46,13 +48,21 @@ const styles = {
 }
 
 function App() {
+    
   return (
-    <div style={styles.Background}>
     <ApolloProvider client={client}>
       <Router>
         <>
         <Header />
           <Routes>
+          <Route
+              path='/login'
+              element={<Login />}
+            />
+            <Route
+              path='/signup'
+              element={<Signup />}
+            />
             <Route
               path='/'
               element={<Home />}
@@ -71,8 +81,6 @@ function App() {
         </>
       </Router>
     </ApolloProvider>
-    </div>
-
   );
 }
 
