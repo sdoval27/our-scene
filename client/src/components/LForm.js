@@ -25,7 +25,14 @@ const styles = {
     textAlign: 'center',
     justifyContent: 'center',
     alignItems: 'center',
-    background: 'linear-gradient(90deg, #FC466B 0%, #3F5EFB 100%)'
+    background: 'linear-gradient(90deg, #FC466B 0%, #3F5EFB 100%)',
+    borderStyle: 'solid',
+    borderRadius: '5px',
+    borderWidth: '1px',
+    width: '40vh',
+    height: '50vh',
+    marginLeft: 'auto',
+    marginRight: 'auto'
   }
 }
 
@@ -86,14 +93,18 @@ const LForm = () => {
           <Row>
 
             <Col>
+            <a href = 'profile'>
               <Button style={styles.Button}>Login</Button>
+              </a>
             </Col>
           </Row>
           <Row>
             Don't Have an Account?
           </Row>
           <Row>
+            <a href = 'signup'>
             <Button style={styles.Button}>Sign Up Here!</Button>
+            </a>
           </Row>
 
         </Card>

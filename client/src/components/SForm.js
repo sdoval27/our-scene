@@ -24,7 +24,14 @@ const styles = {
     textAlign: 'center',
     justifyContent: 'center',
     alignItems: 'center',
-    background: 'linear-gradient(90deg, #FC466B 0%, #3F5EFB 100%)'
+    background: 'linear-gradient(90deg, #FC466B 0%, #3F5EFB 100%)',
+    borderStyle: 'solid',
+    borderRadius: '5px',
+    borderWidth: '1px',
+    width: '40vh',
+    height: '50vh',
+    marginLeft: 'auto',
+    marginRight: 'auto'
   }
 }
 
