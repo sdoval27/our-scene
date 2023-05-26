@@ -27,9 +27,9 @@ const AppNavbar = ({ currentPage, handlePageChange }) => {
             <Nav className='ml-auto d-flex'>
               <a
                 href="/"
-                onClick={() => handlePageChange('Concerts')}
-                className={currentPage === 'Concerts' ? 'nav-link active' : 'nav-link'}>
-                {/* link to event page */}
+                onClick={() => handlePageChange('Home')}
+                className={currentPage === 'Home' ? 'nav-link active' : 'nav-link'}>
+                {/* link to home page */}
                 <FontAwesomeIcon icon={faIcons} />
               </a>
               <a

@@ -1,6 +1,6 @@
 import React from 'react';
 import 'react-bootstrap';
-import './style/Concert.css';
+
 
 //icons
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';

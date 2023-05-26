@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useMutation } from '@apollo/client';
-
+import './style/Post.css';
 
 //post concert
 import { CREATE_POST } from '../utils/mutations';
@@ -76,19 +76,13 @@ const PostForm = () => {
 
 
   return (
-    <div>
-      <h3>Where to next?</h3>
+    <div className='container'>
+      <h3 className='title'>Where to next?</h3>
 
 
       {/* {Auth.loggedIn() ? ( */}
         <>
-          <p
-            className={`m-0 ${
-              characterCount === 280 || error ? 'text-danger' : ''
-            }`}
-          >
-            Character Count: {characterCount}/280
-          </p>
+          
           <form
             className="flex-row justify-center justify-space-between-md align-center"
             onSubmit={handleFormSubmit}
@@ -96,13 +90,21 @@ const PostForm = () => {
             <div className="col-12 col-lg-9">
               <textarea
                 name="content"
-                placeholder="Check out this latest event..."
+                placeholder="Put your concert deets here :)"
                 value={content}
                 className="form-input w-100"
                 style={{ lineHeight: '1.5', resize: 'vertical' }}
                 onChange={handleChange}
               ></textarea>
             </div>
+
+            <p
+            className={`m-0 ${
+              characterCount === 280 || error ? 'text-danger' : ''
+            }`}
+          >
+            Character Count: {characterCount}/280
+          </p>
 
 
             <div className="col-12 col-lg-3">

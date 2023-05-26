@@ -6,7 +6,7 @@ import './App.css';
 import Header from './components/Header';
 
 
-import Concerts from './pages/Concerts';
+import Home from './pages/Home';
 import Post from './pages/Post';
 import Profile from './pages/Profile';
 import Navbar from "./components/Navbar";
@@ -49,7 +49,7 @@ function App() {
           <Routes>
             <Route
               path='/'
-              element={<Concerts />}
+              element={<Home />}
             />
             <Route
               path='/post'
