@@ -3,31 +3,33 @@ const { Schema } = mongoose;
 
 const postSchema = new Schema(
     {
-        content: {
-            type: String,
-            required: true,
-            unique: true,
-        },
-
         userId: {
             type: Schema.Types.ObjectId,
             ref: 'User',
             required: true,
         },
 
+        content: {
+            type: String,
+            required: true,
+            unique: true,
+        },
+
         event: {
             type: Schema.Types.ObjectId,
             ref: 'Event',
+        },
+        
+        userLocation: {
+            type: String,
+            required: true,
         },
 
         createdAt: {
             type: Date,
             default: Date.now,
         },
-        userLocation: {
-            type: String,
-            required: true,
-        }
+
     })
 
 const Post = mongoose.model('Post', postSchema);

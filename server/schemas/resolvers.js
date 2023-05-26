@@ -11,7 +11,20 @@ const resolvers = {
             }
             throw new AuthenticationError('Not Logged in');
         },
+
+        feed: async (parent, args, context) => {
+            if (context.user) {
+                const posts = await Post.find()
+                    .sort({ createdAt: -1 })
+                    .populate('user')
+                    .populate('event');
+
+                return posts;
+            }
+            throw new AuthenticationError('Not logged in');
+        },
     },
+
 
     Mutation: {
         addUser: async (parent, args) => {

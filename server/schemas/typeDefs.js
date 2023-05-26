@@ -11,11 +11,11 @@ const typeDefs = gql`
 
   type Post {
     _id: ID!
-    content: String!
-    createdAt: String!
     user: User!
+    content: String!
     event: Events!
     userLocation: String!
+    createdAt: String!
   }
 
   type Events {
@@ -24,8 +24,7 @@ const typeDefs = gql`
     description: String!
     date: String!
     venue: String!
-    user: User!
-    posts: [Post]
+    artistList: String!
   }
 
   type Auth {
@@ -35,24 +34,25 @@ const typeDefs = gql`
 
   type Query {
     me: User
-    users: [User]
-    user(username: String!): User
-    posts: [Post]
-    post(postId: ID!): Post
-    events: [Events]
-    event(eventId: ID!): Events
+    feed: [Post]
   }
 
   type Mutation {
-    addUser(username: String!, email: String!, password: String!): Auth
-    login(email: String!, password: String!): Auth
-    createPost(content: String!): Post
-    deletePost(postId: ID!): Post
-  }
-
-  schema {
-    query: Query
-    mutation: Mutation
+    addUser(
+      username: String! 
+      email: String! 
+      password: String!
+      ): Auth
+    login(
+      email: String! 
+      password: String!
+      ): Auth
+    createPost(
+      content: String!
+      ): Post
+    deletePost(
+      postId: ID!
+      ): Post
   }
 `;
 

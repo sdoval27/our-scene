@@ -11,6 +11,7 @@ const userSchema = new Schema(
       type: String,
       required: true,
       unique: true,
+      trim: true,
     },
 
     email: {
@@ -23,28 +24,24 @@ const userSchema = new Schema(
     password: {
       type: String,
       required: true,
+      minlength: 5,
     },
 
-    profileImage: {
-        type: String,
-    },
+    // profileImage: {
+    //     type: String,
+    // },
 
-    bio: {
-        type: String,
-    },
+    // bio: {
+    //     type: String,
+    // },
 
-    preferences: {
-      type: String,
-    },
+    // preferences: {
+    //   type: String,
+    // },
     
-    posts: [Post.schema]
+    // posts: [Post.schema],
   },
   
-  {
-    toJSON: {
-      virtuals: true,
-    },
-  }
 );
 
 // hash user password
