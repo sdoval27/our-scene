@@ -16,12 +16,10 @@ const eventSchema = new Schema({
     type: Date,
     required: true,
   },
-
   venue: {
     type: String,
     required: true,
   },
-
   artistList: {
     type: String,
     required: true,

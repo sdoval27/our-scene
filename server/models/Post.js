@@ -24,7 +24,6 @@ const postSchema = new Schema(
             type: Date,
             default: Date.now,
         },
-
         userLocation: {
             type: String,
             required: true,
