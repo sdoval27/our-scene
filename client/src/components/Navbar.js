@@ -36,6 +36,11 @@ const AppNavbar = ({ currentPage, handlePageChange }) => {
                 className={currentPage === 'Concerts' ? 'nav-link active' : 'nav-link'}>
                 {/* link to event page */}
                 <FontAwesomeIcon icon={faIcons} style={{ padding: "5px"}}/>
+                href="/"
+                onClick={() => handlePageChange('Home')}
+                className={currentPage === 'Home' ? 'nav-link active' : 'nav-link'}>
+                {/* link to home page */}
+                <FontAwesomeIcon icon={faIcons} />
               </a>
               <a
                 href='/post'
