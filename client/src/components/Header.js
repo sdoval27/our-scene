@@ -2,9 +2,6 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Navbar, Nav, Container, Modal, Tab } from 'react-bootstrap';
 
-import SForm from './SForm';
-import LForm from './LForm';
-
 import Auth from '../utils/auth';
 
 const styles = {
