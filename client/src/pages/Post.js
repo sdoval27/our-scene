@@ -77,7 +77,7 @@ const PostForm = () => {
 
   return (
     <div className='container'>
-      <h3 className='title text'>Where to next?</h3>
+      <h3 className='title'>Where to next?</h3>
 
 
       {/* {Auth.loggedIn() ? ( */}

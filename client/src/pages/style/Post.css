@@ -1,14 +1,19 @@
 .container{
     text-align: center;
-    
+    font-family: 'Orbitron';
 }
 .title{
     font-weight: 'bold';
+    /* query l8r */
+    font-size:24px;
   }
 .text{
-    font-family: 'Orbitron';
+    
+    /* query l8r */
+    font-size: 16px;
 }
 .char-text{
+    /* query l8r */
     font-size: 10px;
 
 }
