@@ -1,6 +1,8 @@
 .container{
     text-align: center;
     font-family: 'Orbitron';
+    /* query l8r */
+    padding: 10px;
 }
 .title{
     font-weight: 'bold';
@@ -10,7 +12,7 @@
 .text{
     
     /* query l8r */
-    font-size: 16px;
+    font-size:16px;
 }
 .char-text{
     /* query l8r */
@@ -20,7 +22,7 @@
 .button {
     border: none;
     border-radius: 15px;
-    width: 8%;
+    width: 70px;
     line-height: 200%;
     background-color:#5500FF;
     color: white;
