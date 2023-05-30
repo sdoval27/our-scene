@@ -36,7 +36,7 @@ app.use((err, req, res, next) => {
 
 const startApolloServer = async () => {
   await server.start();
-  server.applyMiddleware({ app, path: '/graphql'});
+  server.applyMiddleware({ app });
 
 
   db.once('open', () => {

@@ -7,23 +7,16 @@ const eventSchema = new Schema({
     required: true,
   },
 
-  description: {
-    type: String,
-    required: true,
-  },
-
   date: {
     type: Date,
     required: true,
   },
+  
   venue: {
     type: String,
     required: true,
   },
-  artistList: {
-    type: String,
-    required: true,
-  }
+
 
 });
 

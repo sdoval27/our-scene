@@ -3,10 +3,10 @@ const { Schema } = mongoose;
 
 const postSchema = new Schema(
     {
-        userId: {
-            type: Schema.Types.ObjectId,
+        userPost: {
+            type: String,
             ref: 'User',
-            required: true,
+            trim: true,
         },
 
         content: {
@@ -16,19 +16,20 @@ const postSchema = new Schema(
         },
 
         event: {
-            type: Schema.Types.ObjectId,
+            type: String,
             ref: 'Event',
+            required: true,
         },
         
         userLocation: {
             type: String,
-            required: true,
         },
 
         createdAt: {
             type: Date,
             default: Date.now,
         },
+        
 
     })
 

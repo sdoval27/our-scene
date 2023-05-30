@@ -23,6 +23,7 @@ const AppHeader = () => {
     <>
       <Navbar bg='dark' variant='dark' expand='lg'>
         <Container fluid style={styles.Center}>
+<<<<<<< HEAD
           <Navbar.Brand as={Link} to='/' styling='headerText'>
             Konnect
           </Navbar.Brand>
@@ -60,6 +61,13 @@ const AppHeader = () => {
           </Modal.Body>
         </Tab.Container>
       </Modal>
+=======
+          <Navbar.Brand as={Link} to='/login' styling='headerText'>
+            Konnect
+          </Navbar.Brand>
+        </Container>
+      </Navbar>    
+>>>>>>> 6a6b0deaf90a4c3ac4949d9b8dcd4c993a976d25
     </>
   );
 };

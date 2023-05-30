@@ -25,7 +25,18 @@ const styles = {
     textAlign: 'center',
     justifyContent: 'center',
     alignItems: 'center',
+<<<<<<< HEAD
     background: 'linear-gradient(90deg, #FC466B 0%, #3F5EFB 100%)'
+=======
+    background: 'linear-gradient(90deg, #FC466B 0%, #3F5EFB 100%)',
+    borderStyle: 'solid',
+    borderRadius: '5px',
+    borderWidth: '1px',
+    width: '40vh',
+    height: '50vh',
+    marginLeft: 'auto',
+    marginRight: 'auto'
+>>>>>>> 6a6b0deaf90a4c3ac4949d9b8dcd4c993a976d25
   }
 }
 
@@ -86,14 +97,26 @@ const LForm = () => {
           <Row>
 
             <Col>
+<<<<<<< HEAD
               <Button style={styles.Button}>Login</Button>
+=======
+            <a href = 'profile'>
+              <Button style={styles.Button}>Login</Button>
+              </a>
+>>>>>>> 6a6b0deaf90a4c3ac4949d9b8dcd4c993a976d25
             </Col>
           </Row>
           <Row>
             Don't Have an Account?
           </Row>
           <Row>
+<<<<<<< HEAD
             <Button style={styles.Button}>Sign Up Here!</Button>
+=======
+            <a href = 'signup'>
+            <Button style={styles.Button}>Sign Up Here!</Button>
+            </a>
+>>>>>>> 6a6b0deaf90a4c3ac4949d9b8dcd4c993a976d25
           </Row>
 
         </Card>

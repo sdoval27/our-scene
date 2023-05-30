@@ -6,7 +6,9 @@ import './App.css';
 import Header from './components/Header';
 
 
-import Concerts from './pages/Concerts';
+import Login from './pages/Login';
+import Signup from './pages/Signup'
+import Home from './pages/Home';
 import Post from './pages/Post';
 import Profile from './pages/Profile';
 import Navbar from "./components/Navbar";
@@ -39,8 +41,14 @@ const client = new ApolloClient({
   cache: new InMemoryCache(),
 });
 
+const styles = {
+  Background: {
+  background: 'linear-gradient(90deg, #FC466B 0%, #3F5EFB 100%)'
+}
+}
 
 function App() {
+    
   return (
     <div style={styles.Background}>
     <ApolloProvider client={client}>
@@ -48,9 +56,17 @@ function App() {
         <>
         <Header />
           <Routes>
+          <Route
+              path='/login'
+              element={<Login />}
+            />
+            <Route
+              path='/signup'
+              element={<Signup />}
+            />
             <Route
               path='/'
-              element={<Concerts />}
+              element={<Home />}
             />
             <Route
               path='/post'
@@ -66,8 +82,11 @@ function App() {
         </>
       </Router>
     </ApolloProvider>
+<<<<<<< HEAD
     </div>
 
+=======
+>>>>>>> 6a6b0deaf90a4c3ac4949d9b8dcd4c993a976d25
   );
 }
 

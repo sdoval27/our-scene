@@ -1,9 +1,8 @@
 const mongoose = require('mongoose');
 const { Schema } = require('mongoose');
 const bcrypt = require('bcrypt');
-const Post = require('./Post');
+// const Post = require('./Post');
 
-// import schema from Events?
 
 const userSchema = new Schema(
   {
@@ -11,7 +10,7 @@ const userSchema = new Schema(
       type: String,
       required: true,
       unique: true,
-      trim: true,
+      index: true
     },
 
     email: {
@@ -27,6 +26,13 @@ const userSchema = new Schema(
       minlength: 5,
     },
 
+    posts: [
+      {
+        type: Schema.Types.ObjectId,
+        ref: 'Post',
+      },
+    ],
+
     // profileImage: {
     //     type: String,
     // },
@@ -39,10 +45,11 @@ const userSchema = new Schema(
     //   type: String,
     // },
     
-    // posts: [Post.schema],
   },
   
 );
+
+
 
 // hash user password
 userSchema.pre('save', async function (next) {
