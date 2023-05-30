@@ -3,6 +3,7 @@ import LForm from '../components/LForm'
 
 
 
+<<<<<<< HEAD
 const styles = {
 <<<<<<< HEAD
   Center: {
@@ -34,10 +35,12 @@ export default function Login() {
   Card: {}
   }
 
+=======
+>>>>>>> c1518f26863eaaed0124264861f61a9ebf4db852
 
 export default function Login() {
   return(
-    <div style={styles.Card}>                   
+    <div>                   
         <LForm/>
     </div>
 )};

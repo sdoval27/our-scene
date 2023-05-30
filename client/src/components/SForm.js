@@ -24,9 +24,6 @@ const styles = {
     textAlign: 'center',
     justifyContent: 'center',
     alignItems: 'center',
-<<<<<<< HEAD
-    background: 'linear-gradient(90deg, #FC466B 0%, #3F5EFB 100%)'
-=======
     background: 'linear-gradient(90deg, #FC466B 0%, #3F5EFB 100%)',
     borderStyle: 'solid',
     borderRadius: '5px',
@@ -35,7 +32,6 @@ const styles = {
     height: '50vh',
     marginLeft: 'auto',
     marginRight: 'auto'
->>>>>>> 6a6b0deaf90a4c3ac4949d9b8dcd4c993a976d25
   }
 }
 

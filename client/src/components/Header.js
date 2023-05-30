@@ -23,51 +23,11 @@ const AppHeader = () => {
     <>
       <Navbar bg='dark' variant='dark' expand='lg'>
         <Container fluid style={styles.Center}>
-<<<<<<< HEAD
-          <Navbar.Brand as={Link} to='/' styling='headerText'>
-            Konnect
-          </Navbar.Brand>
-        </Container>
-      </Navbar>
-      {/* set modal data up */}
-      <Modal
-        size='lg'
-        show={showModal}
-        onHide={() => setShowModal(false)}
-        aria-labelledby='signup-modal'>
-        {/* tab container to do either signup or login component */}
-        <Tab.Container defaultActiveKey='login' >
-          <Modal.Header closeButton>
-            <Modal.Title id='signup-modal'>
-              <Nav variant='pills'>
-                <Nav.Item>
-                  <Nav.Link eventKey='login'>Login</Nav.Link>
-                </Nav.Item>
-                <Nav.Item>
-                  <Nav.Link eventKey='signup'>Sign Up</Nav.Link>
-                </Nav.Item>
-              </Nav>
-            </Modal.Title>
-          </Modal.Header>
-          <Modal.Body>
-            <Tab.Content>
-              <Tab.Pane eventKey='login'>
-                <LForm handleModalClose={() => setShowModal(false)} />
-              </Tab.Pane>
-              <Tab.Pane eventKey='signup'>
-                <SForm handleModalClose={() => setShowModal(false)} />
-              </Tab.Pane>
-            </Tab.Content>
-          </Modal.Body>
-        </Tab.Container>
-      </Modal>
-=======
           <Navbar.Brand as={Link} to='/login' styling='headerText'>
             Konnect
           </Navbar.Brand>
         </Container>
       </Navbar>    
->>>>>>> 6a6b0deaf90a4c3ac4949d9b8dcd4c993a976d25
     </>
   );
 };
