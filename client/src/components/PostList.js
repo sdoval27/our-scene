@@ -11,7 +11,7 @@ const styles = {
       fontFamily: 'Orbitron',
       fontWeight: 'bold',
       color: 'white',
-      textShadow: '2px 2px #000000'
+      textShadow: '1.5px 2.5px #000000'
   },
 }
 
@@ -26,11 +26,11 @@ const PostList = ({
   showUsername = true,
 }) => {
   if (!posts) {
-    return <h3 className='Text'>No Posts Yet</h3>;
+    return <h3 style={styles.Text}>No Posts Yet</h3>;
   }
 
   return (
-    <div className='Text'>
+    <div style={styles.Text}>
       {showContent && <h3>{content}</h3>}
       {posts &&
         posts.map((post) => (
