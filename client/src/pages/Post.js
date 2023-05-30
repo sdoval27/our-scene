@@ -99,7 +99,7 @@ const PostForm = () => {
             </div>
 
             <p
-            className={`text m-0 ${
+            className={`char-text text m-0 ${
               characterCount === 280 || error ? 'text-danger' : ''
             }`}
           >
@@ -108,7 +108,7 @@ const PostForm = () => {
 
 
             <div className="col-12 col-lg-3">
-              <button className="text btn btn-primary btn-block py-3" type="submit">
+              <button className="button text btn btn-primary btn-block py-3" type="submit">
                 Post!
               </button>
             </div>

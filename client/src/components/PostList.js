@@ -1,6 +1,20 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
+const styles = {
+  Center: {
+      textAlign: 'center',
+      justifyContent: 'center',
+      alignItems: 'center',
+  },
+  Text: {
+      fontFamily: 'Orbitron',
+      fontWeight: 'bold',
+      color: 'white',
+      textShadow: '2px 2px #000000'
+  },
+}
+
 const PostList = ({
   posts,
   content,
@@ -12,11 +26,11 @@ const PostList = ({
   showUsername = true,
 }) => {
   if (!posts) {
-    return <h3>No Posts Yet</h3>;
+    return <h3 className='Text'>No Posts Yet</h3>;
   }
 
   return (
-    <div>
+    <div className='Text'>
       {showContent && <h3>{content}</h3>}
       {posts &&
         posts.map((post) => (
