@@ -10,9 +10,46 @@ const Login = (props) => {
   const [userFormData, setUserFormData] = useState({ email: '', password: '' });
   const [login, { error, data }] = useMutation(LOGIN_USER);
 
+<<<<<<< HEAD
   // update state based on form input changes
   const handleChange = (event) => {
     const { name, value } = event.target;
+=======
+<<<<<<< HEAD
+const styles = {
+<<<<<<< HEAD
+  Center: {
+    textAlign: 'center',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  Space: {
+    padding: '10px'
+  },
+  Disk: {
+    borderStyle: 'solid',
+    borderRadius: '5px'
+  }
+}
+
+export default function Login() {
+  return (
+    <div style={styles.Center}>
+      <div className="row" style={styles.Space}></div>
+
+      <div className="row">        
+      </div>
+      <LForm />
+    </div>
+  )
+};
+=======
+  Card: {}
+  }
+
+=======
+>>>>>>> c1518f26863eaaed0124264861f61a9ebf4db852
+>>>>>>> d8ac0005abec7e0e8433ddb23ea72b4dfcc904c9
 
     setUserFormData({
       ...userFormData,
@@ -20,6 +57,7 @@ const Login = (props) => {
     });
   };
 
+<<<<<<< HEAD
   // submit form
   const handleFormSubmit = async (event) => {
     event.preventDefault();
@@ -28,6 +66,9 @@ const Login = (props) => {
       const { data } = await login({
         variables: { ...userFormData },
       });
+=======
+>>>>>>> 6a6b0deaf90a4c3ac4949d9b8dcd4c993a976d25
+>>>>>>> d8ac0005abec7e0e8433ddb23ea72b4dfcc904c9
 
       Auth.login(data.login.token);
     } catch (e) {

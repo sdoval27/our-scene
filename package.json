@@ -17,20 +17,25 @@
     "react-bootstrap": "^2.7.4",
     "react-dom": "^18.2.0",
     "react-scripts": "5.0.1",
-    "web-vitals": "^2.1.4"
+    "web-vitals": "^2.1.4",
+    "@apollo/client": "^3.7.14"
   },
   "scripts": {
-    "start": "node server/server.js",
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
     "develop": "concurrently \"cd server && npm run watch\" \"cd client && npm start\"",
-    "install": "cd server && npm i && cd ../client && npm i",
-    "build": "cd client && npm run build",
-    "seed": "cd server && npm run seed"
+    "install": "cd server && npm i && cd ../client && npm i"
   },
   "eslintConfig": {
     "extends": [
       "react-app",
       "react-app/jest"
     ]
+  },
+  "devDependencies": {
+    "concurrently": "^5.1.0"
   },
   "browserslist": {
     "production": [

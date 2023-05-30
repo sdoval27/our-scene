@@ -1,29 +1,36 @@
-const { Schema } = require('mongoose');
+const mongoose = require('mongoose');
+const { Schema } = mongoose;
 
 const postSchema = new Schema(
     {
+        userPost: {
+            type: String,
+            ref: 'User',
+            trim: true,
+        },
+
         content: {
             type: String,
             required: true,
             unique: true,
         },
-        userId: {
-            type: mongoose.Schema.Types.ObjectId,
-            ref: 'User',
+
+        event: {
+            type: String,
+            ref: 'Event',
             required: true,
         },
-        event: {
-            type: mongoose.Schema.Types.ObjectId,
-            ref: 'Event',
-          },
+        
+        userLocation: {
+            type: String,
+        },
+
         createdAt: {
             type: Date,
             default: Date.now,
         },
-        userLocation: {
-            type: String,
-            required: true,
-        }
+        
+
     })
 
 const Post = mongoose.model('Post', postSchema);
