@@ -31,13 +31,13 @@ const AppNavbar = ({ currentPage, handlePageChange }) => {
               onClick={() => handlePageChange('Home')}
               className={currentPage === 'Home' ? 'nav-link active' : 'nav-link'}>
               {/* link to home page */}
-              <FontAwesomeIcon icon={faIcons} />
+              <FontAwesomeIcon icon={faIcons} style={{ color: "#C600E9"}}/>
             </a>
             <a
               href='/post'
               onClick={() => handlePageChange('Post')}
               className={currentPage === 'Post' ? 'nav-link active' : 'nav-link'}>
-              <FontAwesomeIcon icon={faCirclePlus} style={{ color: "#00ffbf", }} />
+              <FontAwesomeIcon icon={faCirclePlus} style={{ color: "#00E986", }} />
             </a>
             <a
               href='/profile'

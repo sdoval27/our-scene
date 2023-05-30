@@ -6,6 +6,7 @@
   background-color: red;
   color: white;
   text-align: center;
+  font-family: 'Orbitron';
 } 
 
 .center{
@@ -15,7 +16,7 @@
 }
 
 .lowernav {
-    background-color: #32838D;
+    background-color: #344258;
     overflow: hidden;
     padding: 20px;
 }
@@ -28,15 +29,18 @@
     padding: 14px 16px;
     text-decoration: none;
     font-size: 17px;
-    border-radius: 8px;
+    border-radius: 25px;
+    /* query transition for desktop */
     transition: all 0.5s ease-in-out;
 }
-
+/* query for desktop */
 .lowernav a:hover {
     background-color: #ddd; 
     color: black;
-    box-shadow: inset 0px 0px 8px rgb(52, 214, 193), 0 0  15px rgba(52, 214, 193);
+    box-shadow: inset 0px 0px 8px rgb(0, 167, 167), 0 0  15px rgb(0, 167, 167);
 }
+/* for iphone query click */
+
 .link {
     color:white;
 }
