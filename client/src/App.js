@@ -43,7 +43,12 @@ const client = new ApolloClient({
 
 const styles = {
   Background: {
-  background: 'linear-gradient(90deg, #FC466B 0%, #3F5EFB 100%)'
+  background: 'linear-gradient(90deg, #FC466B 0%, #3F5EFB 100%)',
+  position: 'absolute',
+  left: 0,
+  bottom: 0,
+  top: 0,
+  width: '100%',
 }
 }
 
@@ -82,11 +87,8 @@ function App() {
         </>
       </Router>
     </ApolloProvider>
-<<<<<<< HEAD
     </div>
 
-=======
->>>>>>> 6a6b0deaf90a4c3ac4949d9b8dcd4c993a976d25
   );
 }
 
