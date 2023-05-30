@@ -41,12 +41,6 @@ const client = new ApolloClient({
   cache: new InMemoryCache(),
 });
 
-const styles = {
-  Background: {
-  background: 'linear-gradient(90deg, #FC466B 0%, #3F5EFB 100%)'
-}
-}
-
 function App() {
     
   return (

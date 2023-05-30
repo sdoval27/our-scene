@@ -21,7 +21,7 @@ const AppHeader = () => {
       <Navbar bg='dark' variant='dark' expand='lg'>
         <Container fluid style={styles.Center}>
           <Navbar.Brand as={Link} to='/login' styling='headerText'>
-            Konnect
+          <h1>BeatMeet/Unity/Vibetribe/ElectroHangout/ElectroLink</h1>
           </Navbar.Brand>
         </Container>
       </Navbar>    
