@@ -23,37 +23,37 @@ const resolvers = {
             return Post.find(params).sort({ createdAt: -1 });
         },
 
-
-
         events: async () => {
             try {
                 // Fetch event data from the API
-                const response = await axios.get('https://edmtrain.com/api/events?', {
+                const response = await axios.get('https://edmtrain.com/api/events?client=55c6fa44-317f-4384-8d3e-ebb7d1afbb07', {
                     headers: {
                         Authorization: '55c6fa44-317f-4384-8d3e-ebb7d1afbb07'
                     },
                 });
 
-                // Map and save the event data to your Event model
-                const eventData = response.data
-                const events = eventData.map((data) => {
+                const eventDataArray = response.data.data;
+                const eventNames = eventDataArray
+                    .filter(event => event.name)
+                    .map(event => event.name);
+                console.log(eventNames);
+
+                // Map and save the event data to Event model
+                const events = eventNames.map(name => {
                     return new Events({
-                        name: data.name,
-                        date: data.date,
-                        venue: data.venue,
-                        // Map other relevant fields from the API response to your Event model
+                        name: name,
                     });
                 });
+
                 await Events.insertMany(events); // Save the events to the database
-                // Return the events
+                // // Return the events
                 return events;
             } catch (error) {
                 console.error('Error fetching event data:', error);
+                throw new Error('Unable to fetch event data');
             }
         },
     },
-
-
 
     Mutation: {
         addUser: async (parent, { username, email, password }) => {
@@ -136,6 +136,36 @@ module.exports = resolvers;
 //           );
 //     }
 //     throw new AuthenticationError('Not logged in');
+// },
+
+
+
+// events: async () => {
+//     try {
+//         // Fetch event data from the API
+//         const response = await axios.get('https://edmtrain.com/api/events?client=55c6fa44-317f-4384-8d3e-ebb7d1afbb07', {
+//             headers: {
+//                 Authorization: '55c6fa44-317f-4384-8d3e-ebb7d1afbb07'
+//             },
+//         });
+//         const eventDataArray = response.data.data;
+//         const eventNames = eventDataArray.map(event => event.name);
+//         console.log(eventNames);
+
+//         // Map and save the event data to your Event model
+//         const events = eventNames.map(name => {
+//             return new Events({
+//                 name: name,
+//             });
+//         });
+
+//         await Events.insertMany(events); // Save the events to the database
+//         // // Return the events
+//         return eventDataArray;
+//     } catch (error) {
+//         console.error('Error fetching event data:', error);
+//     }
+// },
 // },
 
 

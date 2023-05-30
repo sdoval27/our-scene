@@ -7,15 +7,15 @@ const eventSchema = new Schema({
     required: true,
   },
 
-  date: {
-    type: Date,
-    required: true,
-  },
+  // date: {
+  //   type: Date,
+  //   required: true,
+  // },
   
-  venue: {
-    type: String,
-    required: true,
-  },
+  // venue: {
+  //   type: String,
+  //   required: true,
+  // },
 
 
 });
