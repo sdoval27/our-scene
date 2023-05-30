@@ -1,0 +1,42 @@
+ .footer{
+   position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: red;
+  color: white;
+  text-align: center;
+} 
+
+.center{
+ text-align: 'center';
+ justify-content: 'center';
+ align-items: 'center';
+}
+
+.lowernav {
+    background-color: #32838D;
+    overflow: hidden;
+    padding: 20px;
+}
+
+.lowernav a {
+    float: left;
+    display: block;
+    /* color: white; */
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+    border-radius: 8px;
+    transition: all 0.5s ease-in-out;
+}
+
+.lowernav a:hover {
+    background-color: #ddd; 
+    color: black;
+    box-shadow: inset 0px 0px 8px rgb(52, 214, 193), 0 0  15px rgba(52, 214, 193);
+}
+.link {
+    color:white;
+}
