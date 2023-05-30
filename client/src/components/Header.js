@@ -7,6 +7,8 @@ import LForm from './LForm';
 
 import Auth from '../utils/auth';
 
+//styling
+import './styles/Header.css';
 const styles = {
   Center: {
     textAlign: 'center',
@@ -21,7 +23,7 @@ const AppHeader = () => {
 
   return (
     <>
-      <Navbar bg='dark' variant='dark' expand='lg'>
+      <Navbar className = 'header' bg='dark' variant='dark' expand='lg'>
         <Container fluid style={styles.Center}>
           <Navbar.Brand as={Link} to='/login' styling='headerText'>
             Konnect

@@ -1,0 +1,14 @@
+.header{
+    position: relative;
+    left: 0;
+    top: 0;
+    width: 100%;
+    padding: 20px;
+    color: white;
+    text-decoration: none;
+    background-color: #344258;
+    /* text-align: center;
+    justify-content: 'center';
+    align-items: 'center'; */
+    font-family: 'Orbitron';
+}
