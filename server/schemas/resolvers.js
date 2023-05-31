@@ -33,24 +33,30 @@ const resolvers = {
                 });
 
                 const eventDataArray = response.data.data;
-                const eventNames = eventDataArray
-                    .filter(event => event.name)
-                    .map(event => event.name);
-                console.log(eventNames);
-
-                // Map and save the event data to Event model
-                const events = eventNames.map(name => {
+                const events = eventDataArray.map(event => {
+                    const { name, date, venue } = event;
+                    const { name: venueName, location, address, state, latitude, longitude } = venue;
+                    
+                    const eventName = name || "Unknown";
+                    const venueData = {
+                      name: venueName || "Unknown",
+                      location: location || "Unknown",
+                      address: address || "Unknown",
+                      state: state || "Unknown",
+                      latitude: latitude || "Unknown",
+                      longitude: longitude || "Unknown"
+                    };
+              
                     return new Events({
-                        name: name,
+                      name: eventName,
+                      date: date,
+                      venue: venueData,
                     });
-                });
-
-                await Events.insertMany(events); // Save the events to the database
-                // // Return the events
+                  });
+                console.log(events);
                 return events;
             } catch (error) {
                 console.error('Error fetching event data:', error);
-                throw new Error('Unable to fetch event data');
             }
         },
     },
@@ -124,20 +130,6 @@ const resolvers = {
 module.exports = resolvers;
 
 
-// createPost: async (parent, { content }, context) => {
-//     if (context.user) {
-//         const post = await Post.create({
-//             content,
-//             user: context.user.username,
-//         });
-//         await User.findOneAndUpdate(
-//             { _id: context.user._id },
-//             { $addToSet: { posts: post._id  } }
-//           );
-//     }
-//     throw new AuthenticationError('Not logged in');
-// },
-
 
 
 // events: async () => {
@@ -159,7 +151,7 @@ module.exports = resolvers;
 //             });
 //         });
 
-//         await Events.insertMany(events); // Save the events to the database
+        // await Events.insertMany(events); // Save the events to the database
 //         // // Return the events
 //         return eventDataArray;
 //     } catch (error) {
@@ -167,6 +159,9 @@ module.exports = resolvers;
 //     }
 // },
 // },
+
+
+
 
 
 
