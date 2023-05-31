@@ -5,16 +5,8 @@
   width: 100%;
   color: white;
   text-align: center;
-  justify-content: 'center';
-  align-items: 'center';
   font-family: 'Orbitron';
 } 
-
-.center{
- text-align: 'center';
- justify-content: 'center';
- align-items: 'center';
-}
 
 .lowernav {
     background-color: #344258;

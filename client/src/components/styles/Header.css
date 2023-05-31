@@ -3,12 +3,70 @@
     left: 0;
     top: 0;
     width: 100%;
-    padding: 20px;
-    color: white;
-    text-decoration: none;
+    padding: 15px;
     background-color: #344258;
     /* text-align: center;
     justify-content: 'center';
     align-items: 'center'; */
     font-family: 'Orbitron';
+}
+
+.title {
+    color: white;
+    text-shadow: black 2px 2px;
+    text-decoration: none;
+}
+
+.topnav {
+    overflow: hidden;
+    display: inline-block; 
+    text-align: center;
+    text-decoration: none;
+}
+
+.topnav a {
+    padding: 14px 16px;
+    border-radius: 25px;
+    transition: all 0.5s ease-in-out;
+    float: left;
+    
+}
+
+.icon a {
+    float: right;
+    margin-right: 40px;
+}
+
+.icon a:hover {
+   
+    background-color: #ddd; 
+    color: black;
+    box-shadow: inset 0px 0px 8px rgb(0, 167, 167), 0 0  15px rgb(0, 167, 167);
+}
+
+/* Smartphones (portrait and landscape) ----------- */
+@media only screen
+and (min-width : 320px)
+and (max-width : 480px) {
+/* Styles */
+}
+ 
+/* Smartphones (landscape) ----------- */
+@media only screen
+and (min-width : 321px) {
+/* Styles */
+}
+ 
+/* Smartphones (portrait) ----------- */
+@media only screen
+and (max-width : 320px) {
+/* Styles */
+}
+ 
+/* iPads (portrait) ----------- */
+@media only screen
+and (min-width : 768px)
+and (max-width : 1024px)
+and (orientation : portrait) {
+/* Styles */
 }
