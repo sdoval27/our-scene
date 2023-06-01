@@ -24,6 +24,7 @@
     margin-right: auto;
     width: 40vh;
     height: 50vh;
+
   }
 
   .Flair {
@@ -36,6 +37,14 @@
     width: 35vh;
     height: 45vh;
     padding: 5px;
+    position: relative;
+  }
+
+  .Pic {
+    width: 96%;   
+    position: absolute;
+    left: 2%;
+    bottom: 1%;    
   }
 
   /* Smartphones (portrait and landscape) ----------- */

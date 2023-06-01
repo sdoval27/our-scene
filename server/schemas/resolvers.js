@@ -3,7 +3,6 @@ const { User, Post, Events } = require('../models');
 const { signToken } = require('../utils/auth');
 const axios = require('axios');
 
-
 const resolvers = {
     Query: {
         me: async (parent, args, context) => {
@@ -58,7 +57,9 @@ const resolvers = {
     Mutation: {
         addUser: async (parent, { username, email, password }) => {
             const user = await User.create({ username, email, password });
+            console.log('user is', user);
             const token = signToken(user);
+            console.log('token is', token);
             return { token, user };
         },
 
