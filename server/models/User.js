@@ -33,22 +33,21 @@ const userSchema = new Schema(
       },
     ],
 
-    // profileImage: {
-    //     type: String,
-    // },
+    profileImage: {
+      type: String,
+    },
 
-    // bio: {
-    //     type: String,
-    // },
+    bio: {
+      type: String,
+    },
 
-    // preferences: {
-    //   type: String,
-    // },
-    
+    preferences: {
+      type: String,
+    },
+
   },
-  
-);
 
+);
 
 
 // hash user password
