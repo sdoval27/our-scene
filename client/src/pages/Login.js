@@ -1,49 +1,118 @@
-import React from 'react';
-import LForm from '../components/LForm'
+import React, { useState, useEffect } from 'react';
+import { Form, Button, Alert } from 'react-bootstrap';
 
+import { useMutation } from '@apollo/client';
+import { LOGIN_USER } from '../utils/mutations';
+import Auth from '../utils/auth';
 
+import './style/Login.css';
+import crowd from '../images/crowd.png'
 
-<<<<<<< HEAD
-const styles = {
-<<<<<<< HEAD
-  Center: {
-    textAlign: 'center',
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  Space: {
-    padding: '10px'
-  },
-  Disk: {
-    borderStyle: 'solid',
-    borderRadius: '5px'
-  }
-}
+const Login = () => {
+  const [userFormData, setUserFormData] = useState({ email: '', password: '' });
+  const [validated] = useState(false);
+  const [showAlert, setShowAlert] = useState(false);
 
-export default function Login() {
+  const [login, {error}] = useMutation(LOGIN_USER);
+
+  useEffect(() => {
+    if(error) {
+      setShowAlert(true);
+    }else {
+      setShowAlert(false);
+    }
+  }, [error]);
+
+  const handleInputChange = (event) => {
+    const { name, value } = event.target;
+    setUserFormData({ ...userFormData, [name]: value });
+  };
+
+  const handleFormSubmit = async (event) => {
+    event.preventDefault();
+
+    // check if form has everything (as per react-bootstrap docs)
+    const form = event.currentTarget;
+    if (form.checkValidity() === false) {
+      event.preventDefault();
+      event.stopPropagation();
+    }
+
+    try {
+        console.log({...userFormData})
+      const { data } = await login ({
+        variables: { ...userFormData },
+      });
+
+      console.log(data);
+      Auth.login(data.login.token);
+    } catch (err) {
+      console.error(err);
+    }
+
+    //clears form values
+    setUserFormData({
+      username: '',
+      email: '',
+      password: '',
+    });
+  };
+
   return (
-    <div style={styles.Center}>
-      <div className="row" style={styles.Space}></div>
+    <>
+    <div className = "Text">
+    <div className="Card">
+      <div className ="Flair">
+      <h1>Login</h1>
+      <Form noValidate validated={validated} onSubmit={handleFormSubmit}>
+        <Alert dismissible onClose={() => setShowAlert(false)} show={showAlert} variant='danger'>
+          Something went wrong with your login credentials!
+        </Alert>
+        <Form.Group className='mb-3'>
+          <Form.Label htmlFor='email'>Email</Form.Label>
+          <div className="row">
+          <Form.Control
+            type='text'
+            placeholder='Your email'
+            name='email'
+            onChange={handleInputChange}
+            value={userFormData.email}
+            required
+          />
+          </div>
+          <Form.Control.Feedback type='invalid'>Email is required!</Form.Control.Feedback>
+        </Form.Group>
 
-      <div className="row">        
+        <Form.Group className='mb-3'>
+          <Form.Label htmlFor='password'>Password</Form.Label>
+          <div className="row">
+          <Form.Control
+            type='password'
+            placeholder='Your password'
+            name='password'
+            onChange={handleInputChange}
+            value={userFormData.password}
+            required
+          />
+          </div>
+          <Form.Control.Feedback type='invalid'>Password is required!</Form.Control.Feedback>
+        </Form.Group>
+        <Button          
+          type='submit'
+          variant='success'>
+          Submit
+        </Button>
+      </Form>
+      <div className="row">Don't have a account?</div>
+      <div className="row">Sign up <a href = "./signup"><span>here!</span></a></div>
+      <img src={crowd} alt="cheer" className = "Pic"/>
       </div>
-      <LForm />
-    </div>
-  )
+      </div>
+      
+      </div>
+
+    </>
+  );
 };
-=======
-  Card: {}
-  }
 
-=======
->>>>>>> c1518f26863eaaed0124264861f61a9ebf4db852
-
-export default function Login() {
-  return(
-    <div>                   
-        <LForm/>
-    </div>
-)};
-
->>>>>>> 6a6b0deaf90a4c3ac4949d9b8dcd4c993a976d25
-
+export default Login;
