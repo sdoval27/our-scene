@@ -26,7 +26,7 @@ function Home() {
             <div className="row">
                 <h1 style={styles.Text}>Concerts</h1>
             </div>
-            <div className="row">
+            <div className="row hideImg">
                 <img src={diskJockey} alt="dj" style={styles.Disk} />
             </div>
             <PostList/>
