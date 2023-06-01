@@ -48,3 +48,18 @@ export const CREATE_POST = gql`
   }
 `;
 
+export const UPLOAD_PROFILE_IMAGE = gql `
+  mutation uploadProfileImage($image: Upload!) {
+    uploadProfileImage(image: $image) {
+      avatar
+    }
+  }
+`;
+
+export const UPDATE_USER_BIO = gql `
+  mutation updateUserBio($bio: String!) {
+    updateUserBio(bio: $bio) {
+      bio
+    }
+  }
+`;
