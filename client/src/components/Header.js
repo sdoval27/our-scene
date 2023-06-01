@@ -34,7 +34,7 @@ const AppHeader = (handlePageChange, currentPage) => {
           <Navbar.Brand as={Link} to='/login' className='title' styling='headerText'>
             Konnect
           </Navbar.Brand>
-          <Nav className=' icon center ml-auto d-flex'>
+          <Nav className=' hide icon center ml-auto d-flex'>
             <a
               href="/"
               onClick={() => handlePageChange('Home')}
