@@ -43,8 +43,8 @@ const client = new ApolloClient({
 
 function App() {
 
-  let location = useLocation();
-  console.log('location is', location);
+  // let location = useLocation();
+  // console.log('location is', location);
   // const { pathname } = location;
   // console.log('pathname is', pathname);
   // const NavRender = !(pathname === '/login' || pathname === '/signup');
