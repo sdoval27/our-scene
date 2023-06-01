@@ -18,11 +18,22 @@ const typeDefs = gql`
     createdAt: String!
   }
 
+type Venue {
+    _id: ID!
+    name: String!
+    location: String!
+    address: String!
+    state: String!
+    latitude: String!
+    longitude: String!
+  }
+
+
   type Events {
     _id: ID!
     name: String!
     date: String!
-    venue: String!
+    venue: Venue
   }
 
   type Auth {
