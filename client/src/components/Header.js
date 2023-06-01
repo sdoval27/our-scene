@@ -2,9 +2,6 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Navbar, Nav, Container, Modal, Tab } from 'react-bootstrap';
 
-import SForm from './SForm';
-import LForm from './LForm';
-
 import Auth from '../utils/auth';
 
 const styles = {
@@ -24,7 +21,7 @@ const AppHeader = () => {
       <Navbar bg='dark' variant='dark' expand='lg'>
         <Container fluid style={styles.Center}>
           <Navbar.Brand as={Link} to='/login' styling='headerText'>
-            Konnect
+          <h1>BeatMeet/Unity/Vibetribe/ElectroHangout/ElectroLink</h1>
           </Navbar.Brand>
         </Container>
       </Navbar>    
