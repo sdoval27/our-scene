@@ -35,12 +35,33 @@ const AppHeader = (handlePageChange, currentPage) => {
             Konnect
           </Navbar.Brand>
           <Nav className='icon center ml-auto d-flex'>
+            {/* if user is logged in show saved books and logout */}
+            {Auth.loggedIn() ? (
+              <>
+                {/* move link to post page here*/}
+                <a
+                  href='/post'
+                  onClick={() => handlePageChange('Concerts')}
+                  className={currentPage === 'Concerts' ? 'nav-link active' : 'nav-link'}>
+                  <FontAwesomeIcon icon={faCirclePlus} style={{ color: "#00ffbf", }} />
+                </a>
+
+                {/* move link to profile page here*/}
+                <Nav.Link as={Link} to='/profile'>
+                  <FontAwesomeIcon icon={faUser} style={{ color: "#f50000", }} />
+                </Nav.Link>
+
+                <Nav.Link onClick={Auth.logout}>Logout</Nav.Link>
+              </>
+            ) : (
+              <Nav.Link className=" link" onClick={() => setShowModal(true)}>Login/Sign Up</Nav.Link>
+            )}
             <a
               href="/"
               onClick={() => handlePageChange('Home')}
               className={currentPage === 'Home' ? 'nav-link active' : 'nav-link'}>
               {/* link to home page */}
-              <FontAwesomeIcon icon={faIcons} style={{ color: "#C600E9"}}/>
+              <FontAwesomeIcon icon={faIcons} style={{ color: "#C600E9" }} />
             </a>
             <a
               href='/post'
@@ -54,10 +75,44 @@ const AppHeader = (handlePageChange, currentPage) => {
               className={currentPage === 'Profile' ? 'nav-link active' : 'nav-link'}>
               <FontAwesomeIcon icon={faUser} style={{ color: "#f50000", }} />
             </a>
-            </Nav>
+
+      
+          </Nav>
         </Container>
-      </Navbar>    
-    </>
+      </Navbar>
+      {/* set modal data up */}
+      < Modal
+        size='lg'
+        show={showModal}
+        onHide={() => setShowModal(false)}
+        aria-labelledby='signup-modal' >
+      {/* tab container to do either signup or login component */}
+      < Tab.Container defaultActiveKey='login' >
+        <Modal.Header closeButton>
+          <Modal.Title id='signup-modal'>
+            <Nav variant='pills'>
+              <Nav.Item >
+                <Nav.Link eventKey='login'>Login</Nav.Link>
+              </Nav.Item>
+              <Nav.Item >
+                <Nav.Link eventKey='signup'>Sign Up</Nav.Link>
+              </Nav.Item>
+            </Nav>
+          </Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <Tab.Content>
+            <Tab.Pane eventKey='login'>
+              <LForm handleModalClose={() => setShowModal(false)} />
+            </Tab.Pane>
+            <Tab.Pane eventKey='signup'>
+              <SForm handleModalClose={() => setShowModal(false)} />
+            </Tab.Pane>
+          </Tab.Content>
+        </Modal.Body>
+      </Tab.Container >
+    </Modal >
+</>
   );
 };
 

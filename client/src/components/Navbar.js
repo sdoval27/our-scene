@@ -31,7 +31,7 @@ const AppNavbar = ({ currentPage, handlePageChange }) => {
               onClick={() => handlePageChange('Home')}
               className={currentPage === 'Home' ? 'nav-link active' : 'nav-link'}>
               {/* link to home page */}
-              <FontAwesomeIcon icon={faIcons} style={{ color: "#C600E9"}}/>
+              <FontAwesomeIcon icon={faIcons} style={{ color: "#C600E9" }} />
             </a>
             <a
               href='/post'
@@ -65,7 +65,7 @@ const AppNavbar = ({ currentPage, handlePageChange }) => {
                 <Nav.Link onClick={Auth.logout}>Logout</Nav.Link>
               </>
             ) : (
-              <Nav.Link className="link" onClick={() => setShowModal(true)}>Login/Sign Up</Nav.Link>
+              <Nav.Link className=" link" onClick={() => setShowModal(true)}>Login/Sign Up</Nav.Link>
             )}
           </Nav>
 
