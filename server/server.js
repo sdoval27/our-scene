@@ -19,12 +19,31 @@ const server = new ApolloServer({
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
-const upload = multer({ dest: 'uploads/' });
 
-app.post('/upload', upload.single('file'), (req, res) => {
-  // File has been uploaded and can be accessed via req.file
-  res.sendStatus(200); // Send a success response
+//----Multer Middleware for Image Uploading
+const storage = multer.diskStorage({
+  destination: (req, file, cb) => {
+    cb(null, 'Images');
+  },
+  filename: (req, file, cb) => {
+    console.log(file);
+    cb(null, Date.now() + path.extname(file.originalname));
+  }
 });
+
+const upload = multer({ storage: storage});
+
+app.set('view engine', 'ejs');
+
+app.get('/upload', (req, res) => {
+  res.render(__dirname + '/index.html');
+});
+
+app.post('/upload', upload.single('image'), (req, res) => {
+  // Access the uploaded file using req.file
+  res.send("Image uploaded");
+});
+//----End of Multer Middleware
 
 // if we're in production, serve client/build as static assets
 if (process.env.NODE_ENV === 'production') {
