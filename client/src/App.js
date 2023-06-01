@@ -82,11 +82,6 @@ function App() {
         </>
       </Router>
     </ApolloProvider>
-<<<<<<< HEAD
-    </div>
-
-=======
->>>>>>> d485760582c885259b77d5e0f2c2235d87f1edcc
   );
 }
 
