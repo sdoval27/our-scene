@@ -37,7 +37,18 @@
     color:white;
 }
 
-* Smartphones (portrait and landscape) ----------- */
+/* Sasha's made up media query */
+@media only screen 
+and (min-width: 480px){
+    .hide{
+        display:none;
+    }
+
+}
+
+
+
+/* Smartphones (portrait and landscape) ----------- */
 @media only screen
 and (min-width : 320px)
 and (max-width : 480px) {

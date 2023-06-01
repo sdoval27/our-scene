@@ -44,10 +44,16 @@
 /* Smartphones (portrait and landscape) ----------- */
 @media only screen
 and (min-width : 320px)
-and (max-width : 480px) {
+and (max-width : 800px) {
 /* Styles */
-.hide{
-    display: none;
+
+.icon a {
+   display: none;
+}
+
+.icon a:hover {
+   
+  display: none;
 }
 /* center app title */
 .title {
@@ -56,13 +62,4 @@ and (max-width : 480px) {
     align-items: 'center'; 
 }
 
-}
- 
- 
-/* iPads (portrait) ----------- */
-@media only screen
-and (min-width : 768px)
-and (max-width : 1024px)
-and (orientation : portrait) {
-/* Styles */
-}
+} 
