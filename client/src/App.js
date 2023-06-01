@@ -1,14 +1,14 @@
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 
 import './App.css';
 
 import Header from './components/Header';
 
 
+import Home from './pages/Home';
 import Login from './pages/Login';
 import Signup from './pages/Signup'
-import Home from './pages/Home';
 import Post from './pages/Post';
 import Profile from './pages/Profile';
 import Navbar from "./components/Navbar";
@@ -41,27 +41,25 @@ const client = new ApolloClient({
   cache: new InMemoryCache(),
 });
 
-const styles = {
-  Background: {
-  background: 'linear-gradient(90deg, #FC466B 0%, #3F5EFB 100%)',
-  position: 'absolute',
-  left: 0,
-  bottom: 0,
-  top: 0,
-  width: '100%',
-}
-}
-
 function App() {
-    
+
+  // let location = useLocation();
+  // console.log('location is', location);
+  // const { pathname } = location;
+  // console.log('pathname is', pathname);
+  // const NavRender = !(pathname === '/login' || pathname === '/signup');
+
   return (
-    <div style={styles.Background}>
     <ApolloProvider client={client}>
       <Router>
         <>
-        <Header />
+          <Header />
           <Routes>
-          <Route
+            <Route
+              path='/'
+              element={<Home />}
+            />
+            <Route
               path='/login'
               element={<Login />}
             />
@@ -70,25 +68,25 @@ function App() {
               element={<Signup />}
             />
             <Route
-              path='/'
-              element={<Home />}
-            />
-            <Route
               path='/post'
-              element={<Post/>}/>
+              element={<Post />} />
 
             <Route
               path='/profile'
-              element={<Profile/>}
-              />
+              element={<Profile />}
+            />
 
           </Routes>
-          <Navbar/>
+          <Navbar />
+          {/* {NavRender && <Navbar />} */}
         </>
       </Router>
     </ApolloProvider>
+<<<<<<< HEAD
     </div>
 
+=======
+>>>>>>> d485760582c885259b77d5e0f2c2235d87f1edcc
   );
 }
 

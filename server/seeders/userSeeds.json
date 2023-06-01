@@ -23,6 +23,11 @@
       "username": "Edward V. Berard",
       "email": "evberard@techfriends.dev",
       "password": "password05"
-    }
+    },
+    {      
+      "username": "username",
+      "email": "email@email.com",
+      "password": "password"
+  }
   ]
   

@@ -2,9 +2,6 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Navbar, Nav, Container, Modal, Tab } from 'react-bootstrap';
 
-import SForm from './SForm';
-import LForm from './LForm';
-
 import Auth from '../utils/auth';
 
 //icons
@@ -32,7 +29,7 @@ const AppHeader = (handlePageChange, currentPage) => {
       <Navbar className='topnav header' bg='dark' variant='dark' expand='lg'>
         <Container fluid style={styles.Center}>
           <Navbar.Brand as={Link} to='/login' className='title' styling='headerText'>
-            Konnect
+          <h1>BeatMeet/Unity/Vibetribe/ElectroHangout/ElectroLink</h1>        
           </Navbar.Brand>
           <Nav className='icon center ml-auto d-flex'>
             {/* if user is logged in show saved books and logout */}
