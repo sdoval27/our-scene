@@ -34,24 +34,24 @@ const resolvers = {
                 const eventDataArray = response.data.data;
                 const events = eventDataArray.map(event => {
                     const { name, date, venue } = event;
-                    const { name: venueName, location, address, state, latitude, longitude } = venue;
-                    
+                    const { venueName, location, address, state, latitude, longitude } = venue;
+
                     const eventName = name || "Unknown";
                     const venueData = {
-                      name: venueName || "Unknown",
-                      location: location || "Unknown",
-                      address: address || "Unknown",
-                      state: state || "Unknown",
-                      latitude: latitude || "Unknown",
-                      longitude: longitude || "Unknown"
+                        name: venueName || "Unknown",
+                        location: location || "Unknown",
+                        address: address || "Unknown",
+                        state: state || "Unknown",
+                        latitude: latitude || "Unknown",
+                        longitude: longitude || "Unknown"
                     };
-              
+
                     return new Events({
-                      name: eventName,
-                      date: date,
-                      venue: venueData,
+                        name: eventName,
+                        date: date,
+                        venue: venueData,
                     });
-                  });
+                });
                 console.log(events);
                 return events;
             } catch (error) {
@@ -125,6 +125,21 @@ const resolvers = {
             }
             throw new AuthenticationError('Not logged in');
         },
+
+        editProfile: async (parent, { profileImage, bio, preferences }, context) => {
+            if (context.user) {
+                const user = await User.findOneAndUpdate(
+                    { _id: context.user._id },
+                    { profileImage, bio, preferences },
+                    { new: true }
+                );
+
+                return user;
+            }
+
+            throw new AuthenticationError('Not logged in');
+        },
+
     },
 };
 

@@ -2,8 +2,6 @@ const axios = require('axios');
 const db = require('../config/connection');
 const { Events } = require('../models');
 
-
-
 const seedEvents = async () => {
   try {
     // Fetch event data from the API
@@ -35,25 +33,6 @@ const seedEvents = async () => {
 };
 
 seedEvents()
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
