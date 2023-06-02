@@ -29,7 +29,7 @@ const AppHeader = (handlePageChange, currentPage) => {
       <Navbar className='topnav header' bg='dark' variant='dark' expand='lg'>
         <Container fluid style={styles.Center}>
           <Navbar.Brand as={Link} to='/login' className='title' styling='headerText'>
-          <h1>BeatMeet/Unity/Vibetribe/ElectroHangout/ElectroLink</h1>        
+          <h1>Rave Buddy</h1>        
           </Navbar.Brand>
           <Nav className='icon center ml-auto d-flex'>
             {/* if user is logged in show saved books and logout */}
