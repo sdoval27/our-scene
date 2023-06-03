@@ -48,11 +48,6 @@ seedEvents()
 
 
 
-
-
-
-
-
 // const seedDataNames = async () => {
 //   try {
 //     // Fetch event data from the API

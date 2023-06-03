@@ -1,7 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useMutation } from '@apollo/client';
 import './style/Post.css';
+
+//api
+import axios from "axios";
 
 //post concert
 import { CREATE_POST } from '../utils/mutations';
@@ -10,17 +13,42 @@ import { QUERY_POSTS, QUERY_ME } from '../utils/queries';
 
 import Auth from '../utils/auth';
 
-
 const PostForm = () => {
   const [content, setContent] = useState('');
 
+  //show concert data from API
+  const [showData, setShowData] = useState(false);
+  const [apiData, setApiData] = useState([]);
 
+  //render api data
+//   const fetchData = async () => {
+//     try{
+//     const response = await axios.get(
+//       'https://edmtrain.com/api/events?client=55c6fa44-317f-4384-8d3e-ebb7d1afbb07',
+//       {
+//         headers: {
+//           Authorization: '55c6fa44-317f-4384-8d3e-ebb7d1afbb07',
+//         },
+//       }
+//     );
+//     const eventDataArray = response.data.data;
+//     setEvents(eventDataArray);
+//   } catch (error) {
+//     console.error('Error fetching event data:', error);
+//   }
+// };
+
+//   const handleToggle = () => {
+//     setShowData(!showData);
+//   };
+
+  //chara count box
   const [characterCount, setCharacterCount] = useState(0);
 
 
   const [createPost, { error }] = useMutation(CREATE_POST, {
     update(cache, { data: { createPost } }) {
-        //update event list, meaning we need to set up query for events list
+      //update event list, meaning we need to set up query for events list
       try {
         const { content } = cache.readQuery({ query: QUERY_POSTS });
 
@@ -79,46 +107,76 @@ const PostForm = () => {
     <div className='container'>
       <h3 className='title'>Where to next?</h3>
 
-
       {/* {Auth.loggedIn() ? ( */}
-        <>
-          
-          <form
-            className="flex-row justify-center justify-space-between-md align-center"
-            onSubmit={handleFormSubmit}
-          >
-            <div className="col-12 col-lg-9">
-              <textarea
-                name="content"
-                placeholder="Concert Deets Here!"
-                value={content}
-                className="form text form-input w-100"
-                style={{ lineHeight: '1.5', resize: 'vertical' }}
-                onChange={handleChange}
-              ></textarea>
-            </div>
+      <>
 
-            <p
-            className={`char-text text m-0 ${
-              characterCount === 280 || error ? 'text-danger' : ''
-            }`}
+        <form
+          className="flex-row justify-center justify-space-between-md align-center"
+          onSubmit={handleFormSubmit}
+        >
+          <div className="col-12 col-lg-9">
+            <textarea
+              name="content"
+              placeholder="Concert Deets Here!"
+              value={content}
+              className="placeholder-text form text form-input w-100"
+              style={{ lineHeight: '1.5', resize: 'vertical' }}
+              onChange={handleChange}
+            ></textarea>
+          </div>
+
+          <p
+            className={`char-text text m-0 ${characterCount === 280 || error ? 'text-danger' : ''
+              }`}
           >
             Character Count: {characterCount}/280
           </p>
 
+          <container className='align-buttons'>
 
-            <div className="col-12 col-lg-3">
-              <button className="button text btn btn-primary btn-block py-3" type="submit">
-                Post!
-              </button>
+           {/* concert toggle */}
+           {/* <div>
+          
+          <button className='toggle' onClick={handleToggle}>
+            {showData ? 'Hide Concerts' : 'Display Concerts'}
+            {events.length > 0 ? (
+      <ul>
+        {events.map((event) => (
+          <li key={event.id}>
+            <h2>{event.name}</h2>
+            <p>Date: {event.date}</p>
+            <p>Venue: {event.venue}</p>
+          </li>
+        ))}
+      </ul>
+    ) : (
+      <p>Loading events...</p>
+    )}
+          </button>
+          {showData && (
+            <div>
+              {/* Display the fetched API data here 
+               {apiData.map((item) => (
+                <div key={item.id}>{item.name}</div>
+              ))}
             </div>
-            {error && (
-              <div className="col-12 my-3 bg-danger text-white p-3">
-                {error.message}
-              </div>
-            )}
-          </form>
-        </>
+          )} 
+               </div> */}
+         
+
+          <div className="col-12 col-lg-3">
+            <button className="button-style text btn btn-primary" type="submit">
+              Post!
+            </button>
+          </div>
+          {error && (
+            <div className="col-12 my-3 bg-danger text-white p-3">
+              {error.message}
+            </div>
+          )}
+          </container>
+        </form>
+      </>
       {/* ) : (
         <p>
           You need to be logged in to post content. Please{' '}

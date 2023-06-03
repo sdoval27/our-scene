@@ -24,7 +24,7 @@ const AppNavbar = ({ currentPage, handlePageChange }) => {
       <Navbar className="lowernav footer" bg='dark' variant='dark' expand='lg'>
         <Container fluid>
 
-          <Nav className='center ml-auto d-flex'>
+          <nav className='center ml-auto d-flex'>
             <a
               href="/"
               onClick={() => handlePageChange('Home')}
@@ -66,7 +66,7 @@ const AppNavbar = ({ currentPage, handlePageChange }) => {
             ) : (
               <Nav.Link className=" link" onClick={() => setShowModal(true)}>Login/Sign Up</Nav.Link>
             )}
-          </Nav>
+          </nav>
 
         </Container>
       </Navbar>     

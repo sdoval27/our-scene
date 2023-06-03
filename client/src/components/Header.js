@@ -31,7 +31,7 @@ const AppHeader = (handlePageChange, currentPage) => {
           <Navbar.Brand as={Link} to='/login' className='title' styling='headerText'>
           <h1>Rave Buddy</h1>        
           </Navbar.Brand>
-          <Nav className='icon center ml-auto d-flex'>
+          <nav className='icon center ml-auto d-flex'>
             {/* if user is logged in show saved books and logout */}
             {Auth.loggedIn() ? (
               <>
@@ -74,7 +74,7 @@ const AppHeader = (handlePageChange, currentPage) => {
             </a>
 
       
-          </Nav>
+          </nav>
         </Container>
       </Navbar>
 </>

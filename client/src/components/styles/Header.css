@@ -1,9 +1,4 @@
 .header{
-    /* debug */
-     /* display: flex;
-    align-items: center;  */
-
-    /* prev code */
      position: relative;
     left: 0;
     top: 0; 
@@ -14,19 +9,15 @@
     border-bottom: 10px solid #B81DFB; 
    
 }
-/*  */
+
 .title {
-    display: flex;
-    
-    /* debug */
-    /* end debug */
-     color: white;
+    color: white;
     text-shadow: black 2px 2px;
     text-decoration: none; 
 }
 
 .topnav {
-    /* debug */
+ 
      display: flex; 
      align-items: center; 
 
@@ -45,13 +36,8 @@
 }
 
 .topnav a {
-    
-     /* debug */
-      display: absolute;
-     top:50px; 
-     /* end debug */
      padding: 14px 16px;
-    border-radius: 25px;
+    border-radius: 15px;
     transition: all 0.5s ease-in-out; 
      float: left; 
 }

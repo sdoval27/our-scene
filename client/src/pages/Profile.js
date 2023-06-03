@@ -193,7 +193,7 @@ function Profile() {
                         </label>
                         <label className="prefCheck">
 
-                          <FontAwesomeIcon className="iconPad" icon={faPills} style={{ color: "#94F3FF", }} />
+                          <FontAwesomeIcon className="iconPad" icon={faPills} style={{ color: "#82FFF2 ", }} />
 
                           <input
                             type="checkbox"
