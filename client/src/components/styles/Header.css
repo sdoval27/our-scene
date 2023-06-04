@@ -1,49 +1,62 @@
 .header{
-    position: relative;
+     position: relative;
     left: 0;
-    top: 0;
-    width: 100%;
+    top: 0; 
+     width: 100%;
     padding: 5px;
-    background-color: #344258;
+    background-color:  #181E24;
     font-family: 'Orbitron';
+    border-bottom: 10px solid #B81DFB; 
+   
 }
 
 .title {
     color: white;
     text-shadow: black 2px 2px;
-    text-decoration: none;
+    text-decoration: none; 
 }
 
 .topnav {
-    overflow: hidden;
-    display: inline-block; 
-    text-align: center;
-    text-decoration: none;
+ 
+     display: flex; 
+     align-items: center; 
+
+    /* prev code */
+     display: inline-block;  
+     overflow: hidden; 
+    
+     text-align: center; 
+     text-decoration: none; 
+   
+}
+.grid-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    grid-gap: 70px;
 }
 
 .topnav a {
-    padding: 14px 16px;
-    border-radius: 25px;
-    transition: all 0.5s ease-in-out;
-    float: left;
-    
+     padding: 14px 16px;
+    border-radius: 15px;
+    transition: all 0.5s ease-in-out; 
+     float: left; 
+     color:white;
 }
 
 .icon a {
-    float: right;
-    margin-right: 40px;
+     float: right; 
+     margin-right: 40px; 
 }
 
 .icon a:hover {
    
-    background-color: #ddd; 
+     background-color: #ddd; 
     color: black;
-    box-shadow: inset 0px 0px 8px rgb(0, 167, 167), 0 0  15px rgb(0, 167, 167);
+    box-shadow: inset 0px 0px 8px rgb(0, 167, 167), 0 0  15px rgb(0, 167, 167); 
 }
 
 /* Smartphones (portrait and landscape) ----------- */
 @media only screen
-and (min-width : 320px)
 and (max-width : 800px) {
 /* Styles */
 

@@ -9,19 +9,18 @@
 } 
 
 .lowernav {
-    background-color: #344258;
+    background-color:  #181E24;
     overflow: hidden;
-    padding: 20px;
+    /* padding: 20px; */
 }
 
 .lowernav a {
     display: inline-block;
-    /* color: white; */
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
     font-size: 17px;
-    border-radius: 25px;
+    border-radius: 15px;
     /* query transition for desktop */
     transition: all 0.5s ease-in-out;
 }
