@@ -32,34 +32,26 @@ const AppNavbar = ({ currentPage, handlePageChange }) => {
               {/* link to home page */}
               <FontAwesomeIcon icon={faIcons} style={{ color: "#C600E9" }} />
             </a>
-            <a
-              href='/post'
-              onClick={() => handlePageChange('Post')}
-              className={currentPage === 'Post' ? 'nav-link active' : 'nav-link'}>
-              <FontAwesomeIcon icon={faCirclePlus} style={{ color: "#00E986", }} />
-            </a>
-            <a
-              href='/profile'
-              onClick={() => handlePageChange('Profile')}
-              className={currentPage === 'Profile' ? 'nav-link active' : 'nav-link'}>
-              <FontAwesomeIcon icon={faUser} style={{ color: "#f50000", }} />
-            </a>
+            
 
             {/* if user is logged in show saved books and logout */}
             {Auth.loggedIn() ? (
               <>
                 {/* move link to post page here*/}
                 <a
-                  href='/post'
-                  onClick={() => handlePageChange('Concerts')}
-                  className={currentPage === 'Concerts' ? 'nav-link active' : 'nav-link'}>
-                  <FontAwesomeIcon icon={faCirclePlus} style={{ color: "#00ffbf", }} />
-                </a>
+              href='/post'
+              onClick={() => handlePageChange('Post')}
+              className={currentPage === 'Post' ? 'nav-link active' : 'nav-link'}>
+              <FontAwesomeIcon icon={faCirclePlus} style={{ color: "#00ffbf", }} />
+            </a>
 
                 {/* move link to profile page here*/}
-                <Nav.Link as={Link} to='/profile'>
-                  <FontAwesomeIcon icon={faUser} style={{ color: "#f50000", }} />
-                </Nav.Link>
+                <a
+              href='/profile'
+              onClick={() => handlePageChange('Profile')}
+              className={currentPage === 'Profile' ? 'nav-link active' : 'nav-link'}>
+              <FontAwesomeIcon icon={faUser} style={{ color: "#f50000", }} />
+            </a>
 
                 <Nav.Link onClick={Auth.logout}>Logout</Nav.Link>
               </>

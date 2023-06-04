@@ -32,6 +32,13 @@ const AppHeader = (handlePageChange, currentPage) => {
           <h1>Rave Buddy</h1>        
           </Navbar.Brand>
           <nav className='icon center ml-auto d-flex'>
+          <a
+              href="/"
+              onClick={() => handlePageChange('Home')}
+              className={currentPage === 'Home' ? 'nav-link active' : 'nav-link'}>
+              {/* link to home page */}
+              <FontAwesomeIcon icon={faIcons} style={{ color: "#C600E9" }} />
+            </a>
             {/* if user is logged in show saved books and logout */}
             {Auth.loggedIn() ? (
               <>
@@ -53,26 +60,6 @@ const AppHeader = (handlePageChange, currentPage) => {
             ) : (
               <Nav.Link as={Link} to='/login' className=" link" onClick={() => setShowModal(true)}>Login/Sign Up</Nav.Link>
             )}
-            <a
-              href="/"
-              onClick={() => handlePageChange('Home')}
-              className={currentPage === 'Home' ? 'nav-link active' : 'nav-link'}>
-              {/* link to home page */}
-              <FontAwesomeIcon icon={faIcons} style={{ color: "#C600E9" }} />
-            </a>
-            <a
-              href='/post'
-              onClick={() => handlePageChange('Post')}
-              className={currentPage === 'Post' ? 'nav-link active' : 'nav-link'}>
-              <FontAwesomeIcon icon={faCirclePlus} style={{ color: "#00E986", }} />
-            </a>
-            <a
-              href='/profile'
-              onClick={() => handlePageChange('Profile')}
-              className={currentPage === 'Profile' ? 'nav-link active' : 'nav-link'}>
-              <FontAwesomeIcon icon={faUser} style={{ color: "#f50000", }} />
-            </a>
-
       
           </nav>
         </Container>
