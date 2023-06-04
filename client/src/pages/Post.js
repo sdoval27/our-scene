@@ -4,7 +4,7 @@ import { useMutation } from '@apollo/client';
 import './style/Post.css';
 
 //api
-import axios from "axios";
+//gimport axios from "axios";
 
 //post concert
 import { CREATE_POST } from '../utils/mutations';

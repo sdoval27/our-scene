@@ -40,6 +40,7 @@
     border-radius: 15px;
     transition: all 0.5s ease-in-out; 
      float: left; 
+     color:white;
 }
 
 .icon a {
@@ -56,7 +57,6 @@
 
 /* Smartphones (portrait and landscape) ----------- */
 @media only screen
-and (min-width : 320px)
 and (max-width : 800px) {
 /* Styles */
 

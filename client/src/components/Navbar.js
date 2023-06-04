@@ -24,7 +24,7 @@ const AppNavbar = ({ currentPage, handlePageChange }) => {
       <Navbar className="lowernav footer" bg='dark' variant='dark' expand='lg'>
         <Container fluid>
 
-          <nav className='center ml-auto d-flex'>
+          <nav className='ml-auto d-flex'>
             <a
               href="/"
               onClick={() => handlePageChange('Home')}

@@ -28,7 +28,7 @@ const AppHeader = (handlePageChange, currentPage) => {
     <>
       <Navbar className='topnav header' bg='dark' variant='dark' expand='lg'>
         <Container fluid style={styles.Center}>
-          <Navbar.Brand as={Link} to='/login' className='title' styling='headerText'>
+          <Navbar.Brand className='title' styling='headerText'>
           <h1>Rave Buddy</h1>        
           </Navbar.Brand>
           <nav className='icon center ml-auto d-flex'>
@@ -51,7 +51,7 @@ const AppHeader = (handlePageChange, currentPage) => {
                 <Nav.Link onClick={Auth.logout}>Logout</Nav.Link>
               </>
             ) : (
-              <Nav.Link className=" link" onClick={() => setShowModal(true)}>Login/Sign Up</Nav.Link>
+              <Nav.Link as={Link} to='/login' className=" link" onClick={() => setShowModal(true)}>Login/Sign Up</Nav.Link>
             )}
             <a
               href="/"
