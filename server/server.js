@@ -3,12 +3,25 @@ const { ApolloServer } = require('apollo-server-express');
 const multer = require('multer');
 const path = require('path');
 const { authMiddleware } = require ('./utils/auth');
+const cors = require('cors');
+const http = require('http');
+const socketIO = require('socket.io');
 
 const { typeDefs, resolvers } = require('./schemas');
 const db = require('./config/connection');
 
 const PORT = process.env.PORT || 3001;
 const app = express();
+app.use(cors()); // Enable CORS for all routes
+const httpServer = http.createServer(app);
+
+
+const io = socketIO(httpServer, {
+  cors: {
+    origin: "http://localhost:3001",
+    methods: ["GET", "POST"]
+  }
+});
 
 const server = new ApolloServer({
   typeDefs,
@@ -60,13 +73,28 @@ app.use((err, req, res, next) => {
   res.status(500).json({ error: 'Internal server error' });
 });
 
+io.on('connection', (socket) => {
+  console.log(`A user connected: ${socket.id}`);
+
+  socket.on('message', (data) => {
+    console.log('Received message:', data);
+    // Handle the received message
+  });
+
+  socket.on('disconnect', () => {
+    console.log(`User disconnected: ${socket.id}`);
+  });
+});
+
 const startApolloServer = async () => {
   await server.start();
   server.applyMiddleware({ app });
 
+  
+
 
   db.once('open', () => {
-    app.listen(PORT, () => {
+    httpServer.listen(PORT, () => {
       console.log(`API server running on port ${PORT}!`);
       console.log(`Use GraphQL at http://localhost:${PORT}${server.graphqlPath}`);
     })
