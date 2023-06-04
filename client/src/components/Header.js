@@ -28,7 +28,7 @@ const AppHeader = (handlePageChange, currentPage) => {
     <>
       <Navbar className='topnav header' bg='dark' variant='dark' expand='lg'>
         <Container fluid style={styles.Center}>
-          <Navbar.Brand className='title' styling='headerText'>
+          <Navbar.Brand as={Link} to='/' className='title' styling='headerText'>
           <h1>Rave Buddy</h1>        
           </Navbar.Brand>
           <nav className='icon center ml-auto d-flex'>
