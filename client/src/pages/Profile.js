@@ -6,6 +6,11 @@ import avatarImg from "../images/avatar.png";
 import { useQuery, useMutation } from "@apollo/client";
 import { QUERY_ME } from "../utils/queries";
 import { UPLOAD_PROFILE_IMAGE, UPDATE_USER_BIO } from "../utils/mutations";
+
+//icons
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faMartiniGlass, faSmoking, faPills, faCannabis } from "@fortawesome/free-solid-svg-icons";
+
 // 00FFEE
 function Profile() {
   const { loading, data } = useQuery(QUERY_ME);
@@ -13,6 +18,7 @@ function Profile() {
   const [drinkChecked, setDrinkChecked] = useState(false);
   const [smokeChecked, setSmokeChecked] = useState(false);
   const [candyChecked, setCandyChecked] = useState(false);
+  const [weedChecked, setWeedChecked] = useState(false);
   const [uploadProfileImage] = useMutation(UPLOAD_PROFILE_IMAGE);
   const [updateUserBio] = useMutation(UPDATE_USER_BIO);
 
@@ -27,7 +33,7 @@ function Profile() {
       console.error(err);
     }
   };
-  
+
   const handleBioChange = async (event) => {
     const bio = event.target.value;
     try {
@@ -97,7 +103,7 @@ function Profile() {
             <div className="col-lg-4">
               <div style={{ ...styles.card }} className="card mb-4">
                 <div className="card-body text-center">
-                 {/* {avatar && ( 
+                  {/* {avatar && ( 
                 <img
                     src={avatar}
                     alt="avatar"
@@ -105,25 +111,25 @@ function Profile() {
                     style={{ width: "150px" }}
                   />
                    )}  */}
-                {/* {!avatar && ( */}
-                <form enctype="multipart/form-data">
-                  Upload Profile Photo
-                <input
-                    type="file"
-                    accept="image/*"
-                  />
-                  <button 
-                    onClick={handleImageUpload}
-                    type="button"
-                    className="btn btn-primary"
-                    style={{ backgroundColor: "#00FFEE", color: "#0C1444" }}
+                  {/* {!avatar && ( */}
+                  <form enctype="multipart/form-data">
+                    Upload Profile Photo
+                    <input
+                      type="file"
+                      accept="image/*"
+                    />
+                    <button
+                      onClick={handleImageUpload}
+                      type="button"
+                      className="btn btn-primary"
+                      style={{ backgroundColor: "#00FFEE", color: "#0C1444" }}
                     >Submit</button>
-                </form>
-                   {/* )}  */}
-                   {/* {username && ( */}
-                   <h5 className="my-3">username</h5>
-                   {/* )}  */}
-                    
+                  </form>
+                  {/* )}  */}
+                  {/* {username && ( */}
+                  <h5 className="my-3">username</h5>
+                  {/* )}  */}
+
                   <p className="text-muted mb-1">
                     Followers: <strong>1.2M</strong>
                   </p>
@@ -159,41 +165,58 @@ function Profile() {
                       style={{ ...styles.card }}
                       className="list-group-item d-flex justify-content-between align-items-center p-3"
                     >
-                       {/* {preferences && (
+                      {/* {preferences && (
                         <ul>
                           <li>Drinks: {preferences.drink}</li>
                           <li>Smokes: {preferences.smoke}</li>
                           <li>Candy: {preferences.candy}</li>
                         </ul>
                        )}   */}
-                       {/* {!preferences && (  */}
+                      {/* {!preferences && (  */}
                       <form onSubmit={handlePreferencesChange}>
                         <label className="prefCheck">
-                          🍻
+                          <FontAwesomeIcon className="iconPad" icon={faMartiniGlass} style={{ color: "#FE71E0" }} />
                           <input
-                          type="checkbox"
-                          checked={drinkChecked}
-                          onChange={(event) => setDrinkChecked(event.target.checked)}
+                            className="iconPad"
+                            type="checkbox"
+                            checked={drinkChecked}
+                            onChange={(event) => setDrinkChecked(event.target.checked)}
                           />
                         </label>
                         <label className="prefCheck">
-                        🚬
-                        <input
-                          type="checkbox"
-                          checked={smokeChecked}
-                          onChange={(event) => setSmokeChecked(event.target.checked)}
+                          <FontAwesomeIcon className="iconPad" icon={faSmoking} style={{ color: "#FE902A", }} />
+                          <input
+                            type="checkbox"
+                            checked={smokeChecked}
+                            onChange={(event) => setSmokeChecked(event.target.checked)}
                           />
                         </label>
                         <label className="prefCheck">
-                        🍬 
-                        <input
-                          type="checkbox"
-                          checked={candyChecked}
-                          onChange={(event) => setCandyChecked(event.target.checked)}
+
+                          <FontAwesomeIcon className="iconPad" icon={faPills} style={{ color: "#82FFF2 ", }} />
+
+                          <input
+                            type="checkbox"
+                            checked={candyChecked}
+                            onChange={(event) => setCandyChecked(event.target.checked)}
                           />
                         </label>
+                        <label className="prefCheck">
+
+                          <FontAwesomeIcon className="iconPad" icon={faCannabis} style={{ color: "#3EDA72", }} />
+
+
+                          <input
+                            className="iconPad"
+                            type="checkbox"
+                            checked={weedChecked}
+                            onChange={(event) => setWeedChecked(event.target.checked)}
+                          />
+                        </label>
+
+
                       </form>
-                       {/* )}  */}
+                      {/* )}  */}
                     </li>
                   </ul>
                 </div>
@@ -204,20 +227,20 @@ function Profile() {
                 <div className="card-body">
                   <div className="row">
                     <div className="col-sm-3">
-                     {/* {bio &&(<p className="mb-0">{bio}</p>)}  */}
-                     {/* {!bio &&(  */}
-                    <input
-                      type="text"
-                      placeholder='enter a bio'
-                    />
-                    {/* )} */}
-                    <button 
-                    onClick={handleBioChange}
-                    type="button"
-                    className="btn btn-primary"
-                    style={{ backgroundColor: "#00FFEE", color: "#0C1444", margin: '10px' }}
-                    >Submit</button>
-                      
+                      {/* {bio &&(<p className="mb-0">{bio}</p>)}  */}
+                      {/* {!bio &&(  */}
+                      <input
+                        type="text"
+                        placeholder='enter a bio'
+                      />
+                      {/* )} */}
+                      <button
+                        onClick={handleBioChange}
+                        type="button"
+                        className="btn btn-primary"
+                        style={{ backgroundColor: "#00FFEE", color: "#0C1444", margin: '10px' }}
+                      >Submit</button>
+
                     </div>
                     <div className="col-sm-9">
                       <ul>
@@ -225,7 +248,7 @@ function Profile() {
                           style={{ listStyleType: "none" }}
                           className="text-muted mb-0"
                         >
-                          Of The Trees 
+                          Of The Trees
                         </li>
                         <li
                           style={{ listStyleType: "none" }}
@@ -238,7 +261,7 @@ function Profile() {
                   </div>
                 </div>
               </div>
-               {/* {events && (  */}
+              {/* {events && (  */}
               <div className="row">
                 <div className="col-md-6">
                   <div style={{ ...styles.card }} className="card mb-4 mb-md-0">
@@ -255,7 +278,7 @@ function Profile() {
                   </div>
                 </div>
               </div>
-               {/* )}  */}
+              {/* )}  */}
             </div>
           </div>
         </div>

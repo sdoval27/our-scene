@@ -3,8 +3,8 @@ const { ApolloServer } = require('apollo-server-express');
 const multer = require('multer');
 const path = require('path');
 const { authMiddleware } = require ('./utils/auth');
-const cors = require('cors');
-const http = require('http');
+ const cors = require('cors');
+ const http = require('http');
 const socketIO = require('socket.io');
 
 const { typeDefs, resolvers } = require('./schemas');
@@ -12,8 +12,8 @@ const db = require('./config/connection');
 
 const PORT = process.env.PORT || 3001;
 const app = express();
-app.use(cors()); // Enable CORS for all routes
-const httpServer = http.createServer(app);
+ app.use(cors()); // Enable CORS for all routes
+ const httpServer = http.createServer(app);
 
 
 const io = socketIO(httpServer, {

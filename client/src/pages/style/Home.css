@@ -1,7 +1,12 @@
 .text{
     font-family: 'Orbitron';
 }
-
+/* fix margins */
+body {
+    margin-top: 0px;
+    border-top: 10px solid #3A0CA3;
+    background-color: #E3E3E3;
+}
 /* small screens only */
 @media only screen
 and (min-width : 320px)

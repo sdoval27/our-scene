@@ -22,7 +22,7 @@ const styles = {
 
 function Home() {
     return(
-        <div className ='.align-content-center' style={styles.Center}>                  
+        <div className ='app .align-content-center' style={styles.Center}>                  
             <div className="row">
                 <h1 style={styles.Text}>Concerts</h1>
             </div>
