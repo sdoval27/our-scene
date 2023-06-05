@@ -4,7 +4,12 @@
   left: 50%;
   transform: translate(-50%, -50%);
 }
-
+.renderData{
+    position: absolute;
+    top:25%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
 /* fix margins */
 body {
     background-image: url("../../images/rave.jpg");
