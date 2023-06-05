@@ -78,14 +78,12 @@ const Login = () => {
             onChange={handleInputChange}
             value={userFormData.email}
             required
-          />
-         
-          <Form.Control.Feedback type='invalid'>Email is required!</Form.Control.Feedback>
+          />         
+          {/* <Form.Control.Feedback type='invalid'>Email is required!</Form.Control.Feedback> */}
         </Form.Group>
 
         <Form.Group className='mb-3'>
-          <Form.Label htmlFor='password'>Password</Form.Label>
-         
+          <Form.Label htmlFor='password'>Password</Form.Label>         
           <Form.Control
             type='password'
             placeholder='Your password'
@@ -93,9 +91,8 @@ const Login = () => {
             onChange={handleInputChange}
             value={userFormData.password}
             required
-          />
-        
-          <Form.Control.Feedback type='invalid'>Password is required!</Form.Control.Feedback>
+          />        
+          {/* <Form.Control.Feedback type='invalid'>Password is required!</Form.Control.Feedback> */}
         </Form.Group>
         <Button          
           type='submit'
@@ -103,8 +100,8 @@ const Login = () => {
           Submit
         </Button>
       </Form>
-      <div className="row">Don't have a account?</div>
-      <div className="row">Sign up <a href = "./signup">here!</a></div>
+      <div>Don't have a account?</div>
+      <div>Sign up <a href = "./signup">here!</a></div>
       <img src={crowd} alt="cheer" className = "Pic"/>
       </div>
       </div>

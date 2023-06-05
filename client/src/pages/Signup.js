@@ -79,9 +79,8 @@ const Signup = () => {
                     onChange={handleInputChange}
                     value={userFormData.username}
                     required
-                  />
-                
-                <Form.Control.Feedback type='invalid'>Username is required!</Form.Control.Feedback>
+                  />                
+                {/* <Form.Control.Feedback type='invalid'>Username is required!</Form.Control.Feedback> */}
               </Form.Group>
 
               <Form.Group className='mb-3'>
@@ -94,9 +93,8 @@ const Signup = () => {
                     onChange={handleInputChange}
                     value={userFormData.email}
                     required
-                  />
-               
-                <Form.Control.Feedback type='invalid'>Email is required!</Form.Control.Feedback>
+                  />               
+                {/* <Form.Control.Feedback type='invalid'>Email is required!</Form.Control.Feedback> */}
               </Form.Group>
 
               <Form.Group className='mb-3'>
@@ -109,9 +107,8 @@ const Signup = () => {
                     onChange={handleInputChange}
                     value={userFormData.password}
                     required
-                  />
-              
-                <Form.Control.Feedback type='invalid'>Password is required!</Form.Control.Feedback>
+                  />              
+                {/* <Form.Control.Feedback type='invalid'>Password is required!</Form.Control.Feedback> */}
               </Form.Group>
               <Button
                 type='submit'
