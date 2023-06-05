@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import { useMutation } from '@apollo/client';
 import { useQuery } from '@apollo/client';
 import './style/Post.css';
+import AuthService from '../utils/auth';
+
 
 //api
 //gimport axios from "axios";
@@ -16,6 +18,10 @@ import Auth from '../utils/auth';
 
 const PostForm = () => {
   const [content, setContent] = useState('');
+
+  const {data} = useQuery(QUERY_POSTS);
+  const posts = data?.posts || [];
+  console.log('posts:', posts);
 
   //show concert data from API
   const [showData, setShowData] = useState(false);
@@ -49,45 +55,55 @@ const PostForm = () => {
 
   const [createPost, { error }] = useMutation(CREATE_POST, {
     update(cache, { data: { createPost } }) {
-      //update event list, meaning we need to set up query for events list
       try {
-        const { content } = cache.readQuery({ query: QUERY_POSTS });
-
-
-        cache.writeQuery({
-          query: QUERY_POSTS,
-          data: { content: [createPost, ...content] },
-        });
+        const queryPostsData = cache.readQuery({ query: QUERY_POSTS });
+        const queryMeData = cache.readQuery({ query: QUERY_ME });
+  
+        // Check if the query data exists and has the expected structure
+        if (queryPostsData && queryMeData) {
+          const { content } = queryPostsData;
+          const { me } = queryMeData;
+  
+          // Update the cache only if the necessary data is available
+          if (content && Array.isArray(content) && me) {
+            cache.writeQuery({
+              query: QUERY_POSTS,
+              data: { content: [createPost, ...content] },
+            });
+  
+            cache.writeQuery({
+              query: QUERY_ME,
+              data: { me: { ...me, content: [...me.content, createPost] } },
+            });
+          }
+        }
       } catch (e) {
         console.error(e);
       }
-
-
-      // update me object's cache
-      const { me } = cache.readQuery({ query: QUERY_ME });
-      cache.writeQuery({
-        query: QUERY_ME,
-        data: { me: { ...me, content: [...me.content, createPost] } },
-      });
     },
   });
+  
 
-
+  
   const handleFormSubmit = async (event) => {
     event.preventDefault();
-    const {data} = useQuery(QUERY_POSTS);
-    const posts = data?.posts || [];
+    const username = AuthService.getUser().data.username;
+    // console.log('username:', username);
+
+    console.log('Form submitted');
 
     try {
-      const { data } = await createPost({
-        variables: {
-          content,
-          //err
-          user: data.username,
-        },
-      });
-
-
+      console.log('Username:', username);
+      
+        const { data } = await createPost({
+          variables: {
+            content,
+            //err
+            user: AuthService.getUser().data.username,
+          },
+        });
+        console.log('Mutation response:', data);
+      
       setContent('');
     } catch (err) {
       console.error(err);
@@ -97,7 +113,6 @@ const PostForm = () => {
 
   const handleChange = (event) => {
     const { name, value } = event.target;
-
 
     if (name === 'content' && value.length <= 280) {
       setContent(value);
@@ -122,6 +137,7 @@ const PostForm = () => {
               name="content"
               placeholder="Concert Deets Here!"
               value={content}
+              method="POST"
               className="placeholder-text form text form-input w-100"
               style={{ lineHeight: '1.5', resize: 'vertical' }}
               onChange={handleChange}
@@ -192,3 +208,4 @@ const PostForm = () => {
 
 
 export default PostForm;
+

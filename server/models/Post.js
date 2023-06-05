@@ -4,7 +4,7 @@ const { Schema } = mongoose;
 const postSchema = new Schema(
     {
         userPost: {
-            type: String,
+            type: 'String',
             ref: 'User',
             trim: true,
         },
@@ -15,11 +15,11 @@ const postSchema = new Schema(
             unique: true,
         },
 
-        event: {
-            type: String,
-            ref: 'Event',
-            required: true,
-        },
+        // event: {
+        //     type: Schema.Types.ObjectId,
+        //     ref: 'Event',
+        //     required: true,
+        // },
         
         userLocation: {
             type: String,
