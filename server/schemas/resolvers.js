@@ -18,8 +18,8 @@ const resolvers = {
         },
 
         posts: async () => {
-            return Post.find()
-        },
+            return Post.find().sort({ createdAt: -1 });
+          },
 
         events: async () => {
             try {

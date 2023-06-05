@@ -26,8 +26,9 @@ const styles = {
 
 
 function Home() {
-    // const {data} = useQuery(QUERY_POSTS);
-    // const posts = data?.posts || [];
+    const { loading, data } = useQuery(QUERY_POSTS);
+    const posts = data?.posts || [];
+    console.log(posts);
     return(
         <div className ='app .align-content-center' style={styles.Center}>                  
             <div className="row">
@@ -36,9 +37,11 @@ function Home() {
             <div className="row hideImg">
                 <img src={diskJockey} alt="dj" style={styles.Disk} />
             </div>
-            <PostList
-                // posts={posts}
-                />
+            {loading ? (
+                <div>Loading...</div>
+            ) : (
+            <PostList posts={posts}/>
+            )}
             <div>
                 <div className="row"></div>
             </div>

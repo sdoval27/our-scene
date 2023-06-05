@@ -21,14 +21,14 @@ const postSchema = new Schema(
         //     required: true,
         // },
         
-        userLocation: {
-            type: String,
-        },
+        // userLocation: {
+        //     type: String,
+        // },
 
-        createdAt: {
-            type: Date,
-            default: Date.now,
-        },
+        // createdAt: {
+        //     type: Date,
+        //     default: Date.now,
+        // },
         
 
     })

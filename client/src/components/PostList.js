@@ -19,13 +19,11 @@ const PostList = ({
   posts,
   content,
   createdAt,
-  event,
-  userLocation,
   user,
   showContent = true,
   showUsername = true,
 }) => {
-  if (!posts) {
+  if (!posts.length) {
     return <h3 style={styles.Text}>No Posts Yet</h3>;
   }
 

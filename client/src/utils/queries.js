@@ -7,18 +7,7 @@ export const QUERY_POSTS = gql`
       content
       userPost
       createdAt
-      event {
-        _id
-        name
-        date
-        description
-        venue 
-      }
-      userLocation
-      user{
-        _id
-        username
-      }
+      
     }
   }
 `;
