@@ -24,28 +24,18 @@ const PostList = ({
   showContent = true,
   showUsername = true,
 }) => {
-<<<<<<< HEAD
-  if (!posts) {
-    return <h3 className='renderData' style={styles.Text}>No Posts Yet</h3>;
-=======
   if (!posts.length) {
-    return <h3 style={styles.Text}>No Posts Yet</h3>;
->>>>>>> 5d54479dd2f08820d384e220379b4f0df2aa5cad
+    return <h3 className='renderData'style={styles.Text}>No Posts Yet</h3>;
   }
 
   return (
     <div style={styles.Text}>
       {showContent && <h3>{content}</h3>}
       {posts &&
-<<<<<<< HEAD
-        posts.map((post) => (
-          <div key={post._id} className="card mb-3">
-            <h4 className="renderData card-header bg-primary text-light p-2 m-0">
-=======
         posts.map((posts) => (
           <div key={posts._id} className="card mb-3">
-            <h4 className="card-header bg-primary text-light p-2 m-0">
->>>>>>> 5d54479dd2f08820d384e220379b4f0df2aa5cad
+            {/* render data */}
+            <h4 className="renderData card-header bg-primary text-light p-2 m-0">
               {showUsername ? (
                 <Link
                   className="text-light"
