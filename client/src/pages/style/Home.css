@@ -6,6 +6,8 @@ body {
     margin-top: 0px;
     border-top: 10px solid #3A0CA3;
     background-color: #E3E3E3;
+    height: 100%;
+    margin-bottom: 0%;
 }
 /* small screens only */
 @media only screen

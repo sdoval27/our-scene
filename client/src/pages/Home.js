@@ -1,9 +1,14 @@
 import React from 'react';
+import { useQuery } from '@apollo/client';
+
 import PostList from '../components/PostList';
 import 'react-bootstrap';
 import './style/Home.css';
 
 import diskJockey from '../images/onesandtwos.jpg'
+
+//queries
+import { QUERY_POSTS } from '../utils/queries';
 
 const styles = {
     Center: {
@@ -21,6 +26,8 @@ const styles = {
 
 
 function Home() {
+    const {data} = useQuery(QUERY_POSTS);
+    const posts = data?.posts || [];
     return(
         <div className ='app .align-content-center' style={styles.Center}>                  
             <div className="row">
@@ -29,7 +36,8 @@ function Home() {
             <div className="row hideImg">
                 <img src={diskJockey} alt="dj" style={styles.Disk} />
             </div>
-            <PostList/>
+            <PostList
+                posts={posts}/>
             <div>
                 <div className="row"></div>
             </div>

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useMutation } from '@apollo/client';
+import { useQuery } from '@apollo/client';
 import './style/Post.css';
 
 //api
@@ -74,13 +75,15 @@ const PostForm = () => {
 
   const handleFormSubmit = async (event) => {
     event.preventDefault();
-
+    const {data} = useQuery(QUERY_POSTS);
+    const posts = data?.posts || [];
 
     try {
       const { data } = await createPost({
         variables: {
           content,
-          user: Auth.getProfile().data.username,
+          //err
+          user: data.username,
         },
       });
 
@@ -132,7 +135,7 @@ const PostForm = () => {
             Character Count: {characterCount}/280
           </p>
 
-          <container className='align-buttons'>
+          <div className='align-buttons'>
 
            {/* concert toggle */}
            {/* <div>
@@ -174,7 +177,7 @@ const PostForm = () => {
               {error.message}
             </div>
           )}
-          </container>
+          </div>
         </form>
       </>
       {/* ) : (

@@ -1,38 +1,73 @@
-const axios = require('axios');
-const db = require('../config/connection');
-const { Events } = require('../models');
+// const axios = require('axios');
+// const db = require('../config/connection');
+// const { Events } = require('../models');
 
-const seedEvents = async () => {
-  try {
-    // Fetch event data from the API
-    const response = await axios.get(
-      'https://edmtrain.com/api/events?client=55c6fa44-317f-4384-8d3e-ebb7d1afbb07',
-      {
-        headers: {
-          Authorization: '55c6fa44-317f-4384-8d3e-ebb7d1afbb07',
-        },
-      }
-    );
+// const seedEvents = async () => {
+//   try {
+//     // Fetch event data from the API
+//     const response = await axios.get(
+//       'https://edmtrain.com/api/events?client=55c6fa44-317f-4384-8d3e-ebb7d1afbb07',
+//       {
+//         headers: {
+//           Authorization: '55c6fa44-317f-4384-8d3e-ebb7d1afbb07',
+//         },
+//       }
+//     );
 
-    const eventDataArray = response.data.data;
-    const events = eventDataArray.map(event => {
-      const { name, date, venue } = event;
-      return new Events({
-        name: name,
-        date: date,
-        venue: venue,
-      });
-    });
+//     const eventDataArray = response.data.data;
+//     const events = eventDataArray.map(event => {
+//       const { name, date, venue } = event;
+//       return new Events({
+//         name: name,
+//         date: date,
+//         venue: venue,
+//       });
+//     });
   
-    await Events.insertMany(events);
-    console.log('Seed event data completed.');
-    return events;
-  } catch (error) {
-    console.error('Error fetching event data:', error);
-  }
-};
+//     await Events.insertMany(events);
+//     console.log('Seed event data completed.');
+//     return events;
+//   } catch (error) {
+//     console.error('Error fetching event data:', error);
+//   }
+// };
 
-seedEvents()
+// seedEvents()
+
+const db = require('../config/connection');
+const { User, Post } = require('../models');
+const postSeeds = require('./postSeeds.json');
+const userSeeds = require('./userSeeds.json');
+//const thoughtSeeds = require('./thoughtSeeds.json');
+
+
+db.once('open', async () => {
+  try {
+    await Post.deleteMany({});
+    await User.deleteMany({});
+
+    await User.create(userSeeds);
+
+    for (let i = 0; i < postSeeds.length; i++) {
+      const { _id, userPost } = await Post.create(postSeeds[i]);
+      const user = await User.findOneAndUpdate(
+        { username: userPost },
+        {
+          $addToSet: {
+            posts: _id,
+          },
+        }
+      );
+    }
+  } catch (err) {
+    console.error(err);
+    process.exit(1);
+  }
+
+  console.log('all done!');
+  process.exit(0);
+});
+
 
 
 
