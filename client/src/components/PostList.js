@@ -26,7 +26,7 @@ const PostList = ({
   showUsername = true,
 }) => {
   if (!posts) {
-    return <h3 style={styles.Text}>No Posts Yet</h3>;
+    return <h3 className='renderData' style={styles.Text}>No Posts Yet</h3>;
   }
 
   return (
@@ -35,7 +35,7 @@ const PostList = ({
       {posts &&
         posts.map((post) => (
           <div key={post._id} className="card mb-3">
-            <h4 className="card-header bg-primary text-light p-2 m-0">
+            <h4 className="renderData card-header bg-primary text-light p-2 m-0">
               {showUsername ? (
                 <Link
                   className="text-light"

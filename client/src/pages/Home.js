@@ -30,16 +30,17 @@ const styles = {
 
 
 function Home() {
-    const {data} = useQuery(QUERY_POSTS);
-    const posts = data?.posts || [];
+    // const {data} = useQuery(QUERY_POSTS);
+    // const posts = data?.posts || [];
     return(
         <div className ='app .align-content-center' style={styles.Center}>                  
             <div className="concertTitle row">
                 <h1 style={styles.Text}>Concerts</h1>
             </div>
-            <PostList
-                posts={posts}/>
-            <div className='renderData' style={styles.Text}>test data</div>
+            <PostList className='renderData' style={styles.text}
+                // posts={posts}
+                />
+            {/* <div className='renderData' style={styles.Text}>test data</div> */}
             <div className="row hideImg">
                 <img src={rave} alt="dj" style={styles.Rave} />
             </div>
