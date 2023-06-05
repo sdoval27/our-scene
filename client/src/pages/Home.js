@@ -34,18 +34,18 @@ function Home() {
     const posts = data?.posts || [];
     console.log(posts);
     return(
-        <div className ='renderData app .align-content-center' style={styles.Center}>                  
+        <div className ='app .align-content-center' style={styles.Center}>                  
             <div className="concertTitle row">
                 <h1 style={styles.Text}>Concerts</h1>
-            </div>
-            <div className="row hideImg">
-                <img src={rave} alt="dj" style={styles.Disk} />
             </div>
             {loading ? (
                 <div>Loading...</div>
             ) : (
-            <PostList posts={posts}/>
+            <PostList className='renderData' posts={posts}/>
             )}
+            {/* <div className="row hideImg">
+                <img src={rave} alt="audience hands" style={styles.Disk} />
+            </div> */}
             <div>
                 <div className="row"></div>
             </div>

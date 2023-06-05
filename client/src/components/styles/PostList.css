@@ -1,6 +1,26 @@
 .renderData{
     position: absolute;
-    top: 25%;
+    top: 105%;
     left: 50%;
     transform: translate(-50%, -50%);
+    
+}
+.postbg{
+    background-color: #181E24;
+    margin-top:0;
+}
+/* #FF1EEF */
+/* #B81DFB */
+.button-bg{
+    background-color: white;
+    color:black;
+    padding: 5px;
+}
+.button-bg:hover{
+    color:#FF1EEF;
+    /* text-shadow: aqua; */
+}
+.button-top{
+    background-color: #181E24;
+    margin-bottom: 0;
 }

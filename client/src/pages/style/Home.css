@@ -1,13 +1,15 @@
-.concertTitle{
-  position: absolute;
-  top: 18%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
+ .concertTitle h1 {
+    position: absolute;
+    top: 18%;
+    left: 50%; 
+    transform: translate(-50%, -50%); 
+} 
 .renderData{
     position: absolute;
-    top:25%;
+    /* 120% */
+    top:80%;
     left: 50%;
+    width:90%;
     transform: translate(-50%, -50%);
 }
 /* fix margins */
