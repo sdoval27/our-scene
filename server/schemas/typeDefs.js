@@ -18,7 +18,9 @@ const typeDefs = gql`
     content: String!
     event: Events
     userLocation: String
-    createdAt: String!
+    createdAt: String
+    user: User
+    venue: Venue
   }
 
 type Venue {
@@ -36,6 +38,7 @@ type Venue {
     name: String!
     date: String!
     venue: Venue
+    description: String
   }
 
   type Auth {
@@ -45,16 +48,16 @@ type Venue {
 
   type Query {
     me: User
-    feed: [Post]
     users: [User]
     events: [Events]
+    posts: [Post]
   }
 
   type Mutation {
     addUser(username: String!, email: String!, password: String!): Auth
     login( email: String!, password: String!): Auth
     editProfile(profileImage: String, bio: String, preferences: String): User
-    createPost(content: String!, eventId: ID): Post
+    createPost(content: String!): Post
     addEvent(name: String!, date: String!, venue: String!): Post
     deletePost(postId: ID!): Post
   }

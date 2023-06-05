@@ -33,14 +33,7 @@ export const CREATE_POST = gql`
       content
       createdAt
       userLocation
-      event{
-        _id
-        name
-        description
-        date
-        venue
-      }
-      user{
+      user {
         _id
         username
       }
