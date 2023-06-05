@@ -27,7 +27,7 @@ const AppNavbar = ({ currentPage, handlePageChange }) => {
           <nav className='ml-auto d-flex'>
             <a
               href="/"
-              onClick={() => handlePageChange('Home')}
+              // onClick={() => handlePageChange('Home')}
               className={currentPage === 'Home' ? 'nav-link active' : 'nav-link'}>
               {/* link to home page */}
               <FontAwesomeIcon icon={faIcons} style={{ color: "#C600E9" }} />
@@ -40,7 +40,7 @@ const AppNavbar = ({ currentPage, handlePageChange }) => {
                 {/* move link to post page here*/}
                 <a
               href='/post'
-              onClick={() => handlePageChange('Post')}
+              // onClick={() => handlePageChange('Post')}
               className={currentPage === 'Post' ? 'nav-link active' : 'nav-link'}>
               <FontAwesomeIcon icon={faCirclePlus} style={{ color: "#00ffbf", }} />
             </a>
@@ -48,7 +48,7 @@ const AppNavbar = ({ currentPage, handlePageChange }) => {
                 {/* move link to profile page here*/}
                 <a
               href='/profile'
-              onClick={() => handlePageChange('Profile')}
+              // onClick={() => handlePageChange('Profile')}
               className={currentPage === 'Profile' ? 'nav-link active' : 'nav-link'}>
               <FontAwesomeIcon icon={faUser} style={{ color: "#f50000", }} />
             </a>

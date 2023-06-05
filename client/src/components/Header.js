@@ -34,7 +34,6 @@ const AppHeader = (handlePageChange, currentPage) => {
           <nav className='icon center ml-auto d-flex'>
           <a
               href="/"
-              onClick={() => handlePageChange('Home')}
               className={currentPage === 'Home' ? 'nav-link active' : 'nav-link'}>
               {/* link to home page */}
               <FontAwesomeIcon icon={faIcons} style={{ color: "#C600E9" }} />
@@ -45,15 +44,16 @@ const AppHeader = (handlePageChange, currentPage) => {
                 {/* move link to post page here*/}
                 <a
                   href='/post'
-                  onClick={() => handlePageChange('Concerts')}
                   className={currentPage === 'Concerts' ? 'nav-link active' : 'nav-link'}>
                   <FontAwesomeIcon icon={faCirclePlus} style={{ color: "#00ffbf", }} />
                 </a>
 
                 {/* move link to profile page here*/}
-                <Nav.Link as={Link} to='/profile'>
+                <a
+                 href='/profile'
+                 className={currentPage === 'Profile' ? 'nav-link active' : 'nav-link'}>
                   <FontAwesomeIcon icon={faUser} style={{ color: "#f50000", }} />
-                </Nav.Link>
+                </a>
 
                 <Nav.Link onClick={Auth.logout}>Logout</Nav.Link>
               </>
