@@ -73,9 +73,9 @@ function Profile() {
   return (
     <div className="align-content-center">
       <section
-        style={{
-          background: "linear-gradient(90deg, #FC466B 0%, #3F5EFB 100%)",
-        }}
+        // style={{
+        //   background: "linear-gradient(90deg, #FC466B 0%, #3F5EFB 100%)",
+        // }}
       >
         <div className="container py-5">
           <div className="row">
