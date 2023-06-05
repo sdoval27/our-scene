@@ -10,10 +10,11 @@ body {
 }
 
 .text{
-    
     /* query l8r */
     font-size:16px;
+    padding: 0 0 0 10px;
 }
+
 .title{
     font-weight: 'bold';
     color: white;
@@ -48,10 +49,29 @@ body {
     color: #00FFEE;
 }
 .form{
-    border-color: #00FFEE;
+    /* border-color: #00FFEE; */
     border-radius: 10px;
+    line-height: 2.5;
+    /*formatting*/
+    display: inline-block;
+
 }
 
+@media only screen 
+and (min-width: 800px){
+    .form{
+        /* border-color: #00FFEE; */
+        border-radius: 10px;
+        line-height: 1.5;
+        /*formatting*/
+        display: inline-block;
+    }
+    .text{
+        /* query l8r */
+        font-size:16px;
+        padding: 10px 0 0 10px;
+    }
+}
 
 
 /* Smartphones (portrait and landscape) ----------- */
