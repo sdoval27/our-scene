@@ -14,13 +14,10 @@ const typeDefs = gql`
 
   type Post {
     _id: ID!
-    userPost: String!
+    userPost: String
     content: String!
-    event: Events
-    userLocation: String
     createdAt: String
     user: User
-    venue: Venue
   }
 
 type Venue {

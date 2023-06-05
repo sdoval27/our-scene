@@ -18,48 +18,59 @@ const styles = {
 const PostList = ({
   posts,
   content,
+  _id,
   createdAt,
-  event,
-  userLocation,
-  user,
+  userPost,
   showContent = true,
   showUsername = true,
 }) => {
+<<<<<<< HEAD
   if (!posts) {
     return <h3 className='renderData' style={styles.Text}>No Posts Yet</h3>;
+=======
+  if (!posts.length) {
+    return <h3 style={styles.Text}>No Posts Yet</h3>;
+>>>>>>> 5d54479dd2f08820d384e220379b4f0df2aa5cad
   }
 
   return (
     <div style={styles.Text}>
       {showContent && <h3>{content}</h3>}
       {posts &&
+<<<<<<< HEAD
         posts.map((post) => (
           <div key={post._id} className="card mb-3">
             <h4 className="renderData card-header bg-primary text-light p-2 m-0">
+=======
+        posts.map((posts) => (
+          <div key={posts._id} className="card mb-3">
+            <h4 className="card-header bg-primary text-light p-2 m-0">
+>>>>>>> 5d54479dd2f08820d384e220379b4f0df2aa5cad
               {showUsername ? (
                 <Link
                   className="text-light"
-                  to={`/profile/${posts.user._id}`}
+                  to={`/profile/${posts._id}`}
                 >
-                  {posts.user.username} <br />
+                  {posts.userPosts} <br />
                   <span style={{ fontSize: '1rem' }}>
-                    published: {posts.createdAt}
+                    published: {createdAt}
                   </span>
                 </Link>
               ) : (
                 <>
                   <span style={{ fontSize: '1rem' }}>
-                    You published this on {posts.createdAt}
+                    You published this on {createdAt}
                   </span>
                 </>
               )}
             </h4>
             <div className="card-body bg-light p-2">
-              <p>{post.content}</p>
+              <h1>{posts.content}</h1>
+              <p>{posts.userPost}</p>
             </div>
             <Link
               className="btn btn-primary btn-block btn-squared"
-              to={`/posts/${post._id}`}
+              to={`/posts/${posts._id}`}
             >
               Learn more.
             </Link>
