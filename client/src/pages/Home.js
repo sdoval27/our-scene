@@ -37,11 +37,13 @@ function Home() {
             <div className="concertTitle row">
                 <h1 style={styles.Text}>Concerts</h1>
             </div>
+            <PostList
+                posts={posts}/>
+            <div className='renderData' style={styles.Text}>test data</div>
             <div className="row hideImg">
                 <img src={rave} alt="dj" style={styles.Rave} />
             </div>
-            <PostList
-                posts={posts}/>
+            
             <div>
                 <div className="row"></div>
             </div>
