@@ -16,12 +16,12 @@ const app = express();
  const httpServer = http.createServer(app);
 
 
-const io = socketIO(httpServer, {
-  cors: {
-    origin: "http://localhost:3001",
-    methods: ["GET", "POST"]
-  }
-});
+// const io = socketIO(httpServer, {
+//   cors: {
+//     origin: "http://localhost:3001",
+//     methods: ["GET", "POST"]
+//   }
+// });
 
 const server = new ApolloServer({
   typeDefs,
@@ -73,18 +73,18 @@ app.use((err, req, res, next) => {
   res.status(500).json({ error: 'Internal server error' });
 });
 
-io.on('connection', (socket) => {
-  console.log(`A user connected: ${socket.id}`);
+// io.on('connection', (socket) => {
+//   console.log(`A user connected: ${socket.id}`);
 
-  socket.on('message', (data) => {
-    console.log('Received message:', data);
-    // Handle the received message
-  });
+//   socket.on('message', (data) => {
+//     console.log('Received message:', data);
+//     // Handle the received message
+//   });
 
-  socket.on('disconnect', () => {
-    console.log(`User disconnected: ${socket.id}`);
-  });
-});
+//   socket.on('disconnect', () => {
+//     console.log(`User disconnected: ${socket.id}`);
+//   });
+// });
 
 const startApolloServer = async () => {
   await server.start();

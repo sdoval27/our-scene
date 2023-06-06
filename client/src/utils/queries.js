@@ -5,13 +5,9 @@ export const QUERY_POSTS = gql`
     posts {
       _id
       content
+      userPost
       createdAt
-      event
-      userLocation
-      user{
-        _id
-        username
-      }
+      
     }
   }
 `;
@@ -27,8 +23,43 @@ export const QUERY_ME = gql`
         name
         description
         date
-        venue
+        venue {
+          _id
+          name
+          location
+          address
+          state
+          latitude
+          longitude
+        }
       }
+    }
+  }
+`;
+
+export const QUERY_EVENTS = gql`
+  query getEvents {
+    events {
+      _id
+      name
+      description
+      date
+      venue
+    }
+  }
+`;
+
+
+export const QUERY_VENUE = gql`
+  query getVenue {
+    venue {
+      _id
+      name
+      location
+      address
+      state
+      latitude
+      longitude
     }
   }
 `;

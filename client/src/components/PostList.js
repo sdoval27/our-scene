@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import "./styles/PostList.css";
 
 const styles = {
   Center: {
@@ -7,61 +8,64 @@ const styles = {
       justifyContent: 'center',
       alignItems: 'center',
   },
+  Card: {
+    backgroundColor:'#181E24',
+  },
   Text: {
       fontFamily: 'Orbitron',
       fontWeight: 'bold',
       color: 'white',
-      textShadow: '1.5px 2.5px #000000'
+      // textShadow: '1.5px 2.5px #000000'
   },
 }
 
 const PostList = ({
   posts,
   content,
+  _id,
   createdAt,
-  event,
-  userLocation,
-  user,
+  userPost,
   showContent = true,
   showUsername = true,
 }) => {
-  if (!posts) {
-    return <h3 style={styles.Text}>No Posts Yet</h3>;
+  if (!posts.length) {
+    return <h3 className='renderData'style={styles.Text}>No Posts Yet</h3>;
   }
 
   return (
-    <div style={styles.Text}>
+    <div className="renderData" style={styles.Text}>
       {showContent && <h3>{content}</h3>}
       {posts &&
-        posts.map((post) => (
-          <div key={post._id} className="card mb-3">
-            <h4 className="card-header bg-primary text-light p-2 m-0">
+        posts.map((posts) => (
+          <div key={posts._id} className=" card mb-3">
+            {/* render data */}
+            <h4 className=" button-top">
               {showUsername ? (
                 <Link
-                  className="text-light"
-                  to={`/profile/${posts.user._id}`}
+                  className="button-top text-light"
+                  to={`/profile/${posts._id}`}
                 >
-                  {posts.user.username} <br />
+                  {posts.userPost} <br />
                   <span style={{ fontSize: '1rem' }}>
-                    published: {posts.createdAt}
+                    published {createdAt}
                   </span>
                 </Link>
               ) : (
                 <>
-                  <span style={{ fontSize: '1rem' }}>
-                    You published this on {posts.createdAt}
+                  <span className="button-bg" style={{ fontSize: '1rem' }}>
+                    You published this on {createdAt}
                   </span>
                 </>
               )}
             </h4>
-            <div className="card-body bg-light p-2">
-              <p>{post.content}</p>
+            <div className="postbg p-2">
+              <h1>{posts.content}</h1>
             </div>
             <Link
-              className="btn btn-primary btn-block btn-squared"
-              to={`/thoughts/${post._id}`}
+              className="button-bg  btn-block btn-squared"
+              to={`/posts/${posts._id}`}
             >
-              Learn more.
+              {posts.userPost}
             </Link>
           </div>
         ))}

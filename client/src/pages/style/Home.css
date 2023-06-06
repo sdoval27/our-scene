@@ -1,12 +1,27 @@
-.text{
-    font-family: 'Orbitron';
+ .concertTitle h1 {
+    position: absolute;
+    top: 18%;
+    left: 50%; 
+    transform: translate(-50%, -50%); 
+} 
+.renderData{
+    position: absolute;
+    /* 120% */
+    top:80%;
+    left: 50%;
+    width:90%;
+    transform: translate(-50%, -50%);
 }
 /* fix margins */
 body {
+    background-image: url("../../images/rave.jpg");
     margin-top: 0px;
     border-top: 10px solid #3A0CA3;
     background-color: #E3E3E3;
+    height: 100%;
+    margin-bottom: 0%;
 }
+
 /* small screens only */
 @media only screen
 and (min-width : 320px)

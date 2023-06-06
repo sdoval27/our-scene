@@ -1,3 +1,7 @@
+body {
+    background-image: url("../../images/rave.jpg");
+}
+
 .container{
     text-align: center;
     font-family: 'Orbitron';
@@ -6,10 +10,11 @@
 }
 
 .text{
-    
     /* query l8r */
     font-size:16px;
+    padding: 0 0 0 10px;
 }
+
 .title{
     font-weight: 'bold';
     color: white;
@@ -44,10 +49,47 @@
     color: #00FFEE;
 }
 .form{
-    border-color: #00FFEE;
+    /* border-color: #00FFEE; */
     border-radius: 10px;
+    line-height: 2.5;
+    /*formatting*/
+    text-align: center;
+
 }
 
+@media only screen 
+and (max-width: 800px){
+.mobile{
+    display:block;
+}
+.desktop{
+    display: none;
+ }
+}
+
+@media only screen 
+and (min-width: 800px){
+    .form{
+        border-radius: 10px;
+        line-height: 1.5;
+        /*center*/
+     
+    }
+    .text{
+        /* query l8r */
+        font-size:16px;
+        padding: 10px 0 0 10px;
+    }
+    
+    /* .mobile{
+        display: none;
+    }
+    .desktop button{
+        display: inline;
+        margin-bottom: 0;
+        border-radius: 0 0 0 0;
+    } */
+}
 
 
 /* Smartphones (portrait and landscape) ----------- */

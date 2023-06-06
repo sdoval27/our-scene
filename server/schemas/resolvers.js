@@ -13,14 +13,13 @@ const resolvers = {
             throw new AuthenticationError('Not Logged in');
         },
 
-        users: async (parent, { username }) => {
-            return User.find({ username })
+        users: async () => {
+            return User.find()
         },
 
-        feed: async (parent, { username }) => {
-            const params = username ? { username } : {};
-            return Post.find(params).sort({ createdAt: -1 });
-        },
+        posts: async () => {
+            return Post.find().sort({ createdAt: -1 });
+          },
 
         events: async () => {
             try {
