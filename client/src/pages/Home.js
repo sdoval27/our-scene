@@ -3,6 +3,7 @@ import { useQuery } from '@apollo/client';
 
 import PostList from '../components/PostList';
 import 'react-bootstrap';
+import "bootstrap/dist/css/bootstrap.min.css";
 import './style/Home.css';
 
 import rave from '../images/rave.jpg'
