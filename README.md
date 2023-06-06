@@ -37,5 +37,4 @@ Below is a video displaying our site's functionality:
  [MIT](https://opensource.org/licenses/MIT)
 
 ## Questions:
- - Visit my github at: [sdoval27](https://github.com/sdoval27)
- - You can contact me at: na
+ - You can visit the deployed site [here](https://rave-buddy.herokuapp.com/)
