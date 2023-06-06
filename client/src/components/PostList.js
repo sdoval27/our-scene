@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import "./styles/PostList.css";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 const styles = {
   Center: {
@@ -33,11 +34,11 @@ const PostList = ({
   }
 
   return (
-    <div className="renderData" style={styles.Text}>
+    <div className="renderData overflow-auto" style={styles.Text}>
       {showContent && <h3>{content}</h3>}
       {posts &&
         posts.map((posts) => (
-          <div key={posts._id} className=" card mb-3">
+          <div key={posts._id} className=" overflow-auto card mb-3">
             {/* render data */}
             <h4 className=" button-top">
               {showUsername ? (
@@ -45,7 +46,8 @@ const PostList = ({
                   className="button-top text-light"
                   to={`/profile/${posts._id}`}
                 >
-                  {posts.userPost} <br />
+                  {/* {posts.userPost} */}
+                  <br /> 
                   <span style={{ fontSize: '1rem' }}>
                     published {createdAt}
                   </span>
