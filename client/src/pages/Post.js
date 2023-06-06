@@ -4,6 +4,8 @@ import { useMutation } from '@apollo/client';
 import { useQuery } from '@apollo/client';
 import './style/Post.css';
 import AuthService from '../utils/auth';
+// import "bootstrap/dist/css/bootstrap.min.css";
+import 'react-bootstrap';
 
 
 //api

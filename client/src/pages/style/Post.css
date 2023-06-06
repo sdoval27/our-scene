@@ -45,15 +45,15 @@ body {
     border-radius: 15px;
     width: 70px;
     line-height: 200%;
-    background-color: #00FFEE;
-    color: #00FFEE;
+    background-color: #a200ff;
+    padding:0;
 }
 .form{
     /* border-color: #00FFEE; */
     border-radius: 10px;
     line-height: 2.5;
     /*formatting*/
-    text-align: center;
+    text-align: left;
 
 }
 
@@ -78,7 +78,6 @@ and (min-width: 800px){
     .text{
         /* query l8r */
         font-size:16px;
-        padding: 10px 0 0 10px;
     }
     
     /* .mobile{
