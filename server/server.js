@@ -13,7 +13,7 @@ const db = require('./config/connection');
 const PORT = process.env.PORT || 3001;
 const app = express();
  //app.use(cors()); // Enable CORS for all routes
- const httpServer = http.createServer(app);
+const httpServer = http.createServer(app);
 
 
 // const io = socketIO(httpServer, {
