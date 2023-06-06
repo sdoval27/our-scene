@@ -5,9 +5,9 @@
     transform: translate(-50%, -50%); 
 } 
 .renderData{
-    position: absolute;
+    /* position: absolute; */
     /* 120% */
-    top:80%;
+    top:100%; 
     left: 50%;
     width:90%;
     transform: translate(-50%, -50%);

@@ -34,14 +34,12 @@ const PostList = ({
   }
 
   return (
-    <div>
-
-    
+    <div className="overflow-auto ">
     <div className="renderData" style={styles.Text}>
       {showContent && <h3>{content}</h3>}
       {posts &&
         posts.map((posts) => (
-          <div key={posts._id} className=" overflow-auto card mb-3">
+          <div key={posts._id} className=" overflow-auto d-flex card mb-3">
             {/* render data */}
             <h4 className=" button-top">
               {showUsername ? (
