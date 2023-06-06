@@ -32,7 +32,6 @@ export const CREATE_POST = gql`
       _id
       content
       createdAt
-      userLocation
       user {
         _id
         username

@@ -45,9 +45,9 @@ const PostList = ({
                   className="button-top text-light"
                   to={`/profile/${posts._id}`}
                 >
-                  {posts.userPosts} <br />
+                  {posts.userPost} <br />
                   <span style={{ fontSize: '1rem' }}>
-                    published: {createdAt}
+                    published {createdAt}
                   </span>
                 </Link>
               ) : (
