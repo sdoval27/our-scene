@@ -34,7 +34,10 @@ const PostList = ({
   }
 
   return (
-    <div className="renderData overflow-auto" style={styles.Text}>
+    <div>
+
+    
+    <div className="renderData" style={styles.Text}>
       {showContent && <h3>{content}</h3>}
       {posts &&
         posts.map((posts) => (
@@ -71,6 +74,7 @@ const PostList = ({
             </Link>
           </div>
         ))}
+    </div>
     </div>
   );
 };
